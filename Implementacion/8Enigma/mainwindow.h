@@ -2,10 +2,10 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include <QGraphicsScene>
 #include <QTimer>
-#include <QTime>
-#include <QMessageBox>
-
+#include <QtCore>
+#include "bola.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -18,16 +18,6 @@ class MainWindow : public QMainWindow
 public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
-    QTimer *timer = new QTimer();
-    QTime time;
-    int bolasRestantes;
-    QMessageBox msgBox;
-
-private slots:
-    /*void actualizarEstado();
-    void actualizarCronometro();
-    void definirResultadoFinal();
-    void iniciarJuego();*/
 
 private:
     Ui::MainWindow *ui;

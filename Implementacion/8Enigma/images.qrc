@@ -1,6 +1,0 @@
-<RCC>
-    <qresource prefix="/">
-        <file>mesa.png</file>
-        <file>fondo.jpg</file>
-    </qresource>
-</RCC>
