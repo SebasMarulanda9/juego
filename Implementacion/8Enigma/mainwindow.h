@@ -6,20 +6,36 @@
 #include <QTimer>
 #include <QtCore>
 #include "bola.h"
+#include "taco.h"
 
-QT_BEGIN_NAMESPACE
-namespace Ui { class MainWindow; }
-QT_END_NAMESPACE
+using namespace std;
+
+namespace Ui {
+class MainWindow;
+}
 
 class MainWindow : public QMainWindow
 {
     Q_OBJECT
 
 public:
-    MainWindow(QWidget *parent = nullptr);
+     MainWindow(QWidget *parent = 0);
     ~MainWindow();
+    void tacoInteraction();
+
+private slots:
+    void mover();
+    void on_Tirar_clicked();
 
 private:
     Ui::MainWindow *ui;
+    QGraphicsScene *scene;
+    QTimer *timer;
+    QTimer *timer2;
+    bola *arreglo_bolas;
+    Taco *taco;
+    bool tiro;
+
 };
+
 #endif // MAINWINDOW_H

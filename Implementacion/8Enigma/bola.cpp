@@ -9,14 +9,9 @@ bola::bola()
     velY = 0;
     accelX = 0;
     accelY = 0;
-    velX = 0;
-    velY = 0;
     color = 0;
     bola_en_juego = 1;
-    muerta = 0;
 }
-
-int bola::m=0;
 
 void bola::setPosX(float _posX){
     posX = _posX;
@@ -43,11 +38,6 @@ void bola::setColor(int _color)
     color = _color;
 }
 
-void bola::setM(int _m)
-{
-    m+=_m;
-}
-
 float bola:: getPosX() { return posX; }
 
 float bola:: getPosY() { return posY; }
@@ -62,11 +52,6 @@ float bola:: getAccelY() { return accelY; }
 
 int bola::getColor() { return color; }
 
-int bola::getM()
-{
-    return m;
-}
-
 QRectF bola::boundingRect() const
 {
     return QRectF(-radio,-radio,2*radio,2*radio);
@@ -75,7 +60,7 @@ QRectF bola::boundingRect() const
 
 void bola::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)
 {
-    switch(color){//se asigna un numero para cada color el cual es utilizado en mainwindows dentro del for que dibuja las bolas empezando por la blanca como indica el switch ya que es el caso 0
+    switch(color){
     case 0:
         painter->setBrush(Qt::white);
         break;
@@ -131,56 +116,16 @@ void bola::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWid
 }
 
 
-void bola::mover(int x0, int y0, int w, int h)
+void bola::mover(int w, int h)
 {
     if(bola_en_juego == 1){
 
-        posX += (time*velX);
-        posY += (time*velY);
+        posX += (tiempo*velX);
+        posY += (tiempo*velY);
 
         velX *= desaceleracion;
         velY *= desaceleracion;
-
-        if(posX-radio <= x0){
-            velX *= -0.9;
-            if(posX-radio+radio/100 <= x0){
-                posX = x0+radio;
-            }
-        }
-        if(posX+radio >= x0+w){
-            velX *= - 0.9;
-            if(posX+radio-radio/100 >= x0+w){
-                posX = x0-radio+w;
-            }
-        }
-
-        if(posY-radio <= y0){
-            velY *= - 0.9;
-            if(posY-radio+radio/100 <= y0){
-                posY = y0+radio;
-            }
-        }
-        if(posY+radio >= y0+h){
-            velY *= - 0.9;
-            if(posY+radio-radio/100 >= y0+h){
-                posY = y0-radio+h;
-            }
-        }
-
         setPos(posX,-posY);
-    }
-    else{
-        if(muerta == 0){   //la variable "muerta" se utiliza para que solo entre una vez
-            muerta ++;
-            setPos(bola_en_hueco_x,radio);
-            bola :: setM(1);   //la funcion set ya no se suma solo de a uno, se le suma el argumento
-            muerta *= bola::getM();
-            posY = radio;
-        }
-        else{
-            setPos(-35,470-(2*radio*(muerta)));
-        }
-
     }
 }
 
@@ -194,10 +139,10 @@ float bola::choque(bola *b2)
     }
 
     float ta,tb,tc,td;
-    ta = time*velX;
-    tb = time*velY;
-    tc = time*b2->velX;
-    td = time*b2->velY;
+    ta = tiempo*velX;
+    tb = tiempo*velY;
+    tc = tiempo*b2->velX;
+    td = tiempo*b2->velY;
 
     //Calculando el parametro de impacto
 
@@ -208,10 +153,10 @@ float bola::choque(bola *b2)
 
     //Si la colision es unidimensional
     if(param < 0.1){
-        float t1 = velX* 0.9;
-        float t2 = velY* 0.9;
-        velX = velX * - 0.9;
-        velY = velY *  - 0.9;
+        float t1 = velX* elasti;
+        float t2 = velY* elasti;
+        velX = velX *  -elasti;
+        velY = velY *   -elasti;
         b2->velX = t1;
         b2->velY = t2;
         return 0.0;
@@ -220,9 +165,7 @@ float bola::choque(bola *b2)
     //Si no es unidimensional, se calcula velocidades y ángulos
 
     float teta = asin(param/(2*radio));
-    float alfa = atan2(2*tan(teta),1-0.9)-teta;
-    // float alfa = (M_PI/2)-teta;
-    std::cout<<"alfa: "<<alfa<<" "<<"teta: "<<teta<<std::endl;
+    float alfa = atan2(2*tan(teta),1-elasti)-teta;
     teta *=-1;
     float vel_final1 =(cos(alfa)*(velY+b2->velY)-sin(alfa)*(velX+b2->velX))/sin(-M_PI/2);
     float vel_final2 = (velX+b2->velX-vel_final1*cos(teta))/cos(alfa);
