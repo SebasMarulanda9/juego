@@ -2,7 +2,11 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include <QGraphicsView>
+#include <QPixmap>
 #include <QGraphicsScene>
+#include <QPainter>
+#include <QImage>
 #include <QTimer>
 #include <QtCore>
 #include "bola.h"

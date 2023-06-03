@@ -11,17 +11,17 @@
 class Taco {
 public:
     Taco();
-    Taco(qreal angl,QGraphicsScene *scene);
+    Taco(float angl,QGraphicsScene *scene);
     ~Taco();
-    void shotTaco(QGraphicsScene *scene,bola &ballrefer);
+    void tiroTaco(QGraphicsScene *scene,bola &ballrefer);
 
-    void setImpulso(qreal impul);
-    void setAngulo(qreal angl);
+    void setImpulso(float impul);
+    void setAngulo(float angl);
 
-    qreal getImpulso();
-    qreal getangulo();
+    float getImpulso();
+    float getangulo();
 private:
-    qreal impulso;
-    qreal angulo;
+    float impulso;
+    float angulo;
 };
 #endif // TACO_H

@@ -2,20 +2,16 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include "bola.h"
-#define ancho_mesa 640
-#define largo_mesa 400
-#define margen 30
+
 #define num_balls 16
-#define distancia_bolas_mesa 3
-#define distancia_bola_blanca 11
 
 MainWindow::MainWindow(QWidget *parent):
     QMainWindow(parent),
     ui(new Ui::MainWindow)
 {
-    int puntaje = 15;
+    int contador = 0, contador2 = 0, contador3 = 0, contador4 = 0;
     ui->setupUi(this);
-    scene= new QGraphicsScene(this);
+    scene = new QGraphicsScene(this);
     timer = new QTimer;
     timer2 = new QTimer;
     arreglo_bolas = new bola[num_balls];
@@ -23,105 +19,123 @@ MainWindow::MainWindow(QWidget *parent):
     tiro = false;
     ui->graphicsView->setScene(scene);
     ui->graphicsView->setRenderHint(QPainter::Antialiasing,true);
+    QPixmap pixmap(":/imagenes/mesa.png");
+    QGraphicsPixmapItem* pixmapItem = scene->addPixmap(pixmap);
+    pixmapItem->setPos(0, 0); // Establece la posición en la escena
+    pixmapItem->setScale(1.15); // Ajusta la escala del pixmap
 
-    if(puntaje<15){
+
+
+    if(bola::getpuntaje()<15){
         for(int i=0;i<num_balls;i++){
             arreglo_bolas[i].setColor(i);
+
             if (i == 0){
-                arreglo_bolas[i].setPosX((ancho_mesa-margen-2*radio)/2+(2*15-1-28)*radio);
-                arreglo_bolas[i].setPosY(-(distancia_bola_blanca*margen+10*radio));
-                arreglo_bolas[i].setVelX(0);
-                arreglo_bolas[i].setVelY(0);
-            }
-            else
-            if(i<=5){
-                arreglo_bolas[i].setPosX((ancho_mesa-margen-10*radio)/2+(2*i-1)*radio);
-                arreglo_bolas[i].setPosY(-(distancia_bolas_mesa*margen+2*radio));
-                arreglo_bolas[i].setVelX(0);
-                arreglo_bolas[i].setVelY(0);
-            }
-            else
-            if(i<=9){
-                arreglo_bolas[i].setPosX((ancho_mesa-margen-8*radio)/2+(2*i-1-10)*radio);
-                arreglo_bolas[i].setPosY(-(distancia_bolas_mesa*margen+4*radio));
-                arreglo_bolas[i].setVelX(0);
-                arreglo_bolas[i].setVelY(0);
-            }
-            else
-            if(i<=12){
-                arreglo_bolas[i].setPosX((ancho_mesa-margen-6*radio)/2+(2*i-1-18)*radio);
-                arreglo_bolas[i].setPosY(-(distancia_bolas_mesa*margen+6*radio));
-                arreglo_bolas[i].setVelX(0);
-                arreglo_bolas[i].setVelY(0);
-            }
-            else
-            if(i<=14){
-                arreglo_bolas[i].setPosX((ancho_mesa-margen-4*radio)/2+(2*i-1-24)*radio);
-                arreglo_bolas[i].setPosY(-(distancia_bolas_mesa*margen+8*radio));
-                arreglo_bolas[i].setVelX(0);
-                arreglo_bolas[i].setVelY(0);
-            }else{
-                arreglo_bolas[i].setPosX((ancho_mesa-margen-2*radio)/2+(2*i-1-28)*radio);
-                arreglo_bolas[i].setPosY(-(distancia_bolas_mesa*margen+10*radio));
-                arreglo_bolas[i].setVelX(0);
-                arreglo_bolas[i].setVelY(0);
-            }
-
-            scene->addItem(&arreglo_bolas[i]);
-            timer->start(5);
-        }
-    }
-
-
-    else{
-        for(int i=0;i<num_balls;i++){
-            arreglo_bolas[i].setColor(i);
-            if (i == 0){
-               arreglo_bolas[i].setPosX((ancho_mesa-margen-2*radio)/2+(2*15-1-28)*radio);
-               arreglo_bolas[i].setPosY(-(distancia_bola_blanca*margen+10*radio));
+               arreglo_bolas[i].setPosX(550);
+               arreglo_bolas[i].setPosY(-205);
                arreglo_bolas[i].setVelX(0);
                arreglo_bolas[i].setVelY(0);
             }
-            else
-            if(i<=5){
-                arreglo_bolas[i].setPosX((ancho_mesa-margen-10*radio)/2+(2*i-1)*radio);
-                arreglo_bolas[i].setPosY(-(distancia_bolas_mesa*margen+2*radio));
-                arreglo_bolas[i].setVelX(0);
-                arreglo_bolas[i].setVelY(0);
-            }
-            else
-            if(i<=9){
-                arreglo_bolas[i].setPosX((ancho_mesa-margen-8*radio)/2+(2*i-1-10)*radio);
-                arreglo_bolas[i].setPosY(-(distancia_bolas_mesa*margen+4*radio));
-                arreglo_bolas[i].setVelX(0);
-                arreglo_bolas[i].setVelY(0);
-            }
-            else
-            if(i<=12){
-                arreglo_bolas[i].setPosX((ancho_mesa-margen-6*radio)/2+(2*i-1-18)*radio);
-                arreglo_bolas[i].setPosY(-(distancia_bolas_mesa*margen+6*radio));
-                arreglo_bolas[i].setVelX(0);
-                arreglo_bolas[i].setVelY(0);
-            }
-            else
-            if(i<=14){
-                arreglo_bolas[i].setPosX((ancho_mesa-margen-4*radio)/2+(2*i-1-24)*radio);
-                arreglo_bolas[i].setPosY(-(distancia_bolas_mesa*margen+8*radio));
-                arreglo_bolas[i].setVelX(0);
-                arreglo_bolas[i].setVelY(0);
-            }
             else{
-                arreglo_bolas[i].setPosX((ancho_mesa-margen-2*radio)/2+(2*i-1-28)*radio);
-                arreglo_bolas[i].setPosY(-(distancia_bolas_mesa*margen+10*radio));
-                arreglo_bolas[i].setVelX(0);
-                arreglo_bolas[i].setVelY(0);
+                if(i<=5){
+                    arreglo_bolas[i].setPosX(150);
+                    arreglo_bolas[i].setPosY(-253+contador);
+                    arreglo_bolas[i].setVelX(0);
+                    arreglo_bolas[i].setVelY(0);
+                    contador += radio*2;
+                }
+                else{
+                    if(i<=9){
+                        arreglo_bolas[i].setPosX(174);
+                        arreglo_bolas[i].setPosY(-241+contador2);
+                        arreglo_bolas[i].setVelX(0);
+                        contador2 += radio*2;
+                    }
+                    else{
+                        if(i<=12){
+                            arreglo_bolas[i].setPosX(198);
+                            arreglo_bolas[i].setPosY(-229+contador3);
+                            arreglo_bolas[i].setVelX(0);
+                            arreglo_bolas[i].setVelY(0);
+                            contador3 += radio*2;
+                        }
+                        else{
+                            if(i<=14){
+                                arreglo_bolas[i].setPosX(222);
+                                arreglo_bolas[i].setPosY(-217+contador4);
+                                arreglo_bolas[i].setVelX(0);
+                                arreglo_bolas[i].setVelY(0);
+                                contador4 += radio*2;
+                            }
+                            else{
+                                arreglo_bolas[i].setPosX(246);
+                                arreglo_bolas[i].setPosY(-205);
+                                arreglo_bolas[i].setVelX(0);
+                                arreglo_bolas[i].setVelY(0);
+                            }
+                        }
+                    }
+                }
             }
-
             scene->addItem(&arreglo_bolas[i]);
             timer->start(5);
         }
     }
+    else{
+        for(int i=0;i<num_balls;i++){
+            arreglo_bolas[i].setColor(i);
 
+            if (i == 0){
+               arreglo_bolas[i].setPosX(550);
+               arreglo_bolas[i].setPosY(-205);
+               arreglo_bolas[i].setVelX(0);
+               arreglo_bolas[i].setVelY(0);
+            }
+            else{
+                if(i<=5){
+                    arreglo_bolas[i].setPosX(150);
+                    arreglo_bolas[i].setPosY(-253+contador);
+                    arreglo_bolas[i].setVelX(0);
+                    arreglo_bolas[i].setVelY(0);
+                    contador += radio*2;
+                }
+                else{
+                    if(i<=9){
+                        arreglo_bolas[i].setPosX(174);
+                        arreglo_bolas[i].setPosY(-241+contador2);
+                        arreglo_bolas[i].setVelX(0);
+                        contador2 += radio*2;
+                    }
+                    else{
+                        if(i<=12){
+                            arreglo_bolas[i].setPosX(198);
+                            arreglo_bolas[i].setPosY(-229+contador3);
+                            arreglo_bolas[i].setVelX(0);
+                            arreglo_bolas[i].setVelY(0);
+                            contador3 += radio*2;
+                        }
+                        else{
+                            if(i<=14){
+                                arreglo_bolas[i].setPosX(222);
+                                arreglo_bolas[i].setPosY(-217+contador4);
+                                arreglo_bolas[i].setVelX(0);
+                                arreglo_bolas[i].setVelY(0);
+                                contador4 += radio*2;
+                            }
+                            else{
+                                arreglo_bolas[i].setPosX(246);
+                                arreglo_bolas[i].setPosY(-205);
+                                arreglo_bolas[i].setVelX(0);
+                                arreglo_bolas[i].setVelY(0);
+                            }
+                        }
+                    }
+                }
+            }
+            scene->addItem(&arreglo_bolas[i]);
+            timer->start(5);
+        }
+    }
     connect(timer,SIGNAL(timeout()),this,SLOT(mover()));
 }
 
@@ -139,44 +153,119 @@ MainWindow::~MainWindow()
 void MainWindow::mover()
 {
     tacoInteraction();
-    for(int it1 = 0; it1 < num_balls; it1++) {
-       for(int it2 = 0; it2 < num_balls; it2++){
-           if(it1 != it2){
-               float a = arreglo_bolas[it1].getPosX();
-               float b = arreglo_bolas[it2].getPosX();
-               float c = arreglo_bolas[it1].getPosY();
-               float d = arreglo_bolas[it2].getPosY();
+    //cout << arreglo_bolas[0].getPosX() << endl;
+    for(int bola1 = 0; bola1 < num_balls; bola1++) {
+       for(int bola2 = 0; bola2 < num_balls; bola2++){
+           if(bola1 != bola2){
+               float a = arreglo_bolas[bola1].getPosX();
+               float b = arreglo_bolas[bola2].getPosX();
+               float c = arreglo_bolas[bola1].getPosY();
+               float d = arreglo_bolas[bola2].getPosY();
                if(sqrt(pow(a-b,2)+pow(c-d,2)) <= (2*(radio-0.5)))
-                   arreglo_bolas[it1].choque(&arreglo_bolas[it2]);
+                    arreglo_bolas[bola1].choque(&arreglo_bolas[bola2]);
 
            }
        }
 
-        arreglo_bolas[it1].mover(ancho_mesa-2*margen,largo_mesa-2*margen);
+        arreglo_bolas[bola1].mover(ladoIzquierdo,ladoInferior,ladoDerecho,ladoSuperior);
     }
-  }
+
+    for(int cont = 0;cont < num_balls;cont++){
+        if(arreglo_bolas[cont].muerta == 0){
+            if(arreglo_bolas[cont].getPosX() <= ladoIzquierdo+tolerancia && arreglo_bolas[cont].getPosY() >= ladoSuperior-tolerancia){  //hueco superior izquierdo
+                if(cont==0){
+                    arreglo_bolas[cont].setPosX(550);
+                    arreglo_bolas[cont].setPosY(-205);
+                    arreglo_bolas[cont].setVelX(0);
+                    arreglo_bolas[cont].setVelY(0);
+                }
+                else{
+                    arreglo_bolas[cont].bola_en_juego = 0;
+                    bola::setpuntaje(1);
+                }
+            }
+            else if(arreglo_bolas[cont].getPosX() <= ladoIzquierdo+tolerancia && arreglo_bolas[cont].getPosY() <= ladoInferior+tolerancia){  //hueco inferior izquierdo
+                if(cont==0){
+                    arreglo_bolas[cont].setPosX(550);
+                    arreglo_bolas[cont].setPosY(-205);
+                    arreglo_bolas[cont].setVelX(0);
+                    arreglo_bolas[cont].setVelY(0);
+                }
+                else{
+                    arreglo_bolas[cont].bola_en_juego = 0;
+                    bola::setpuntaje(1);
+               }
+            }
+            else if(arreglo_bolas[cont].getPosX() >= 340 && arreglo_bolas[cont].getPosX() <= 356 && arreglo_bolas[cont].getPosY() <= ladoInferior+tolerancia){  //hueco intermedio inferior
+                if(cont==0){
+                    arreglo_bolas[cont].setPosX(550);
+                    arreglo_bolas[cont].setPosY(-205);
+                    arreglo_bolas[cont].setVelX(0);
+                    arreglo_bolas[cont].setVelY(0);
+                }
+                else{
+                    arreglo_bolas[cont].bola_en_juego = 0;
+                    bola::setpuntaje(1);
+                }
+            }
+            else if(arreglo_bolas[cont].getPosX() >= ladoDerecho-tolerancia && arreglo_bolas[cont].getPosY() <= ladoInferior+tolerancia){  //hueco inferior derecho
+                if(cont==0){
+                    arreglo_bolas[cont].setPosX(550);
+                    arreglo_bolas[cont].setPosY(-205);
+                    arreglo_bolas[cont].setVelX(0);
+                    arreglo_bolas[cont].setVelY(0);
+                }
+                else{
+                    arreglo_bolas[cont].bola_en_juego = 0;
+                    bola::setpuntaje(1);
+                }
+            }
+            else if(arreglo_bolas[cont].getPosX() >= ladoDerecho-tolerancia && arreglo_bolas[cont].getPosY() >= ladoSuperior-tolerancia){  //hueco superior derecho
+                if(cont==0){
+                    arreglo_bolas[cont].setPosX(550);
+                    arreglo_bolas[cont].setPosY(-205);
+                    arreglo_bolas[cont].setVelX(0);
+                    arreglo_bolas[cont].setVelY(0);
+                }
+                else{
+                    arreglo_bolas[cont].bola_en_juego = 0;
+                    bola::setpuntaje(1);
+                }
+            }
+            else if(arreglo_bolas[cont].getPosX() >= 340 && arreglo_bolas[cont].getPosX() <= 356 && arreglo_bolas[cont].getPosY() >= ladoSuperior-tolerancia){  //hueco intermedio superior
+                if(cont==0){
+                    arreglo_bolas[cont].setPosX(550);
+                    arreglo_bolas[cont].setPosY(-205);
+                    arreglo_bolas[cont].setVelX(0);
+                    arreglo_bolas[cont].setVelY(0);
+                }
+                else{
+                    arreglo_bolas[cont].bola_en_juego = 0;
+                    bola::setpuntaje(1);
+                }
+            }
+        }
+    }
+}
 
 void MainWindow::tacoInteraction()
 {
     if(tiro){
         tiro = false;
-         taco->shotTaco( scene,arreglo_bolas[0]);
+        taco->tiroTaco(scene,arreglo_bolas[0]);
     }
 }
 
 void MainWindow::on_Tirar_clicked()
 {
     timer2->start(1000);
-    //poner taco
-    taco->setAngulo(-90*(M_PI/180.0));
 
     //angulo
-    qreal angulo = 4*((qreal)68)*(M_PI/180.0);
-     taco->setAngulo(angulo);
-
+    float angulo = 4*((float)90)*(M_PI/180.0);
+    taco->setAngulo(angulo);
 
     //fuerza
-    taco->setImpulso((qreal)150);
+    taco->setImpulso((float)150);
 
 
     //disparar

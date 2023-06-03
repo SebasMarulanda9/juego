@@ -12,7 +12,6 @@
 #include <QtCore/QVariant>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QGraphicsView>
-#include <QtWidgets/QLineEdit>
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QWidget>
@@ -25,24 +24,21 @@ public:
     QWidget *centralwidget;
     QGraphicsView *graphicsView;
     QPushButton *Tirar;
-    QLineEdit *lineEdit;
 
     void setupUi(QMainWindow *MainWindow)
     {
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName(QString::fromUtf8("MainWindow"));
-        MainWindow->resize(1270, 763);
+        MainWindow->resize(1230, 753);
         centralwidget = new QWidget(MainWindow);
         centralwidget->setObjectName(QString::fromUtf8("centralwidget"));
+        centralwidget->setStyleSheet(QString::fromUtf8("background-color: rgb(0, 170, 0);"));
         graphicsView = new QGraphicsView(centralwidget);
         graphicsView->setObjectName(QString::fromUtf8("graphicsView"));
-        graphicsView->setGeometry(QRect(240, 10, 841, 671));
+        graphicsView->setGeometry(QRect(260, 60, 721, 511));
         Tirar = new QPushButton(centralwidget);
         Tirar->setObjectName(QString::fromUtf8("Tirar"));
-        Tirar->setGeometry(QRect(590, 710, 51, 24));
-        lineEdit = new QLineEdit(centralwidget);
-        lineEdit->setObjectName(QString::fromUtf8("lineEdit"));
-        lineEdit->setGeometry(QRect(470, 710, 113, 22));
+        Tirar->setGeometry(QRect(590, 600, 51, 24));
         MainWindow->setCentralWidget(centralwidget);
 
         retranslateUi(MainWindow);
