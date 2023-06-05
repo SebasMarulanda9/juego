@@ -27,19 +27,6 @@
      </rect>
     </property>
    </widget>
-   <widget class="QPushButton" name="Tirar">
-    <property name="geometry">
-     <rect>
-      <x>590</x>
-      <y>600</y>
-      <width>51</width>
-      <height>24</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Tirar</string>
-    </property>
-   </widget>
   </widget>
  </widget>
  <resources/>

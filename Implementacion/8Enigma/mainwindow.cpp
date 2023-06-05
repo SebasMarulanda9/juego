@@ -11,18 +11,22 @@ MainWindow::MainWindow(QWidget *parent):
 {
     int contador = 0, contador2 = 0, contador3 = 0, contador4 = 0;
     ui->setupUi(this);
+    ui->graphicsView->viewport()->installEventFilter(this);
     scene = new QGraphicsScene(this);
     timer = new QTimer;
     timer2 = new QTimer;
     arreglo_bolas = new bola[num_balls];
     taco = new Taco(0,scene);
     tiro = false;
+
     ui->graphicsView->setScene(scene);
     ui->graphicsView->setRenderHint(QPainter::Antialiasing,true);
     QPixmap pixmap(":/imagenes/mesa.png");
     QGraphicsPixmapItem* pixmapItem = scene->addPixmap(pixmap);
     pixmapItem->setPos(0, 0); // Establece la posición en la escena
     pixmapItem->setScale(1.15); // Ajusta la escala del pixmap
+
+
 
 
 
@@ -256,20 +260,39 @@ void MainWindow::tacoInteraction()
     }
 }
 
-void MainWindow::on_Tirar_clicked()
+bool MainWindow::eventFilter(QObject *watched, QEvent *event)
+
 {
-    timer2->start(1000);
+    if(watched == ui->graphicsView->viewport() && event->type() == QEvent::MouseButtonRelease)
+    {
+        QMouseEvent *mouseEvent = static_cast<QMouseEvent*>(event);
+        float pos_mouseX = mouseEvent->x();
+        float pos_mouseY = mouseEvent->y();
+        std::cout << "Mouse: X= " << pos_mouseX << ", Y= " << pos_mouseY << std::endl;
+        float catetoOpuesto = 0, catetoAdyacente = 0;
+        float pos_blancaX = arreglo_bolas[0].getPosX()+18;
+        float pos_blancaY = arreglo_bolas[0].getPosY()+467;
+        std::cout << "Bola: X= " << pos_blancaX << " Y:= " << pos_blancaY << std::endl;
+        catetoOpuesto = fabs(pos_mouseY-pos_blancaY);
+        catetoAdyacente = fabs(pos_mouseX-pos_blancaX);
 
-    //angulo
-    float angulo = 4*((float)90)*(M_PI/180.0);
-    taco->setAngulo(angulo);
+        double ang = atan2(static_cast<double>(catetoOpuesto), static_cast<double>(catetoAdyacente));
+        double anguloGrados = ang*(180/M_PI);
 
-    //fuerza
-    taco->setImpulso((float)150);
+        std::cout << "Angulo: " << anguloGrados << " grados\n \n" << std::endl;
 
+        timer2->start(1000);
 
-    //disparar
-    tiro = true;
+        //angulo
+        float angulo = -((float)anguloGrados)*(M_PI/180.0);
+        taco->setAngulo(angulo);
 
+        //fuerza
+        taco->setImpulso((float)150);
+
+        //disparar
+        tiro = true;
+    }
+    return false;
 }
 

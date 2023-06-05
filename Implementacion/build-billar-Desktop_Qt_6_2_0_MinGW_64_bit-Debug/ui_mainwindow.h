@@ -13,7 +13,6 @@
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QGraphicsView>
 #include <QtWidgets/QMainWindow>
-#include <QtWidgets/QPushButton>
 #include <QtWidgets/QWidget>
 
 QT_BEGIN_NAMESPACE
@@ -23,7 +22,6 @@ class Ui_MainWindow
 public:
     QWidget *centralwidget;
     QGraphicsView *graphicsView;
-    QPushButton *Tirar;
 
     void setupUi(QMainWindow *MainWindow)
     {
@@ -36,9 +34,6 @@ public:
         graphicsView = new QGraphicsView(centralwidget);
         graphicsView->setObjectName(QString::fromUtf8("graphicsView"));
         graphicsView->setGeometry(QRect(260, 60, 721, 511));
-        Tirar = new QPushButton(centralwidget);
-        Tirar->setObjectName(QString::fromUtf8("Tirar"));
-        Tirar->setGeometry(QRect(590, 600, 51, 24));
         MainWindow->setCentralWidget(centralwidget);
 
         retranslateUi(MainWindow);
@@ -49,7 +44,6 @@ public:
     void retranslateUi(QMainWindow *MainWindow)
     {
         MainWindow->setWindowTitle(QCoreApplication::translate("MainWindow", "MainWindow", nullptr));
-        Tirar->setText(QCoreApplication::translate("MainWindow", "Tirar", nullptr));
     } // retranslateUi
 
 };

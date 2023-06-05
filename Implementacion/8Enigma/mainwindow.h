@@ -9,6 +9,8 @@
 #include <QImage>
 #include <QTimer>
 #include <QtCore>
+#include <QMouseEvent>
+#include <iostream>
 #include "bola.h"
 #include "taco.h"
 
@@ -27,9 +29,11 @@ public:
     ~MainWindow();
     void tacoInteraction();
 
+protected:
+    bool eventFilter(QObject *watched, QEvent *event);
+
 private slots:
     void mover();
-    void on_Tirar_clicked();
 
 private:
     Ui::MainWindow *ui;

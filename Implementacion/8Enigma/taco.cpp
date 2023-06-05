@@ -18,8 +18,8 @@ Taco::~Taco() {
 }
 
 void Taco::tiroTaco(QGraphicsScene *scene,bola &ballrefer){//se calcula la velocidad en X y en Y
-    float Vel_x = 70*( impulso*cos( angulo));
-    float Vel_y = 70*( impulso*sin( angulo));
+    float Vel_x = 70*( impulso*cos(angulo));
+    float Vel_y = 70*( impulso*sin(angulo));
 
     ballrefer.setVelX(-Vel_x);//se envian valores a la bola
     ballrefer.setVelY(-Vel_y);
