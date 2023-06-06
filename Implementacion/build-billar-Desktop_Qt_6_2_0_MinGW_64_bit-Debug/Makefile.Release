@@ -112,7 +112,8 @@ compiler_rcc_clean:
 	-$(DEL_FILE) release\qrc_imagenes.cpp
 release/qrc_imagenes.cpp: ../8Enigma/imagenes.qrc \
 		D:/Qt/6.2.0/mingw81_64/bin/rcc.exe \
-		../8Enigma/mesa.png
+		../8Enigma/mesa.png \
+		../8Enigma/taco.png
 	D:\Qt\6.2.0\mingw81_64\bin\rcc.exe -name imagenes ..\8Enigma\imagenes.qrc -o release\qrc_imagenes.cpp
 
 compiler_moc_predefs_make_all: release/moc_predefs.h
@@ -256,9 +257,19 @@ release/moc_mainwindow.cpp: ../8Enigma/mainwindow.h \
 		D:/Qt/6.2.0/mingw81_64/include/QtCore/qloggingcategory.h \
 		D:/Qt/6.2.0/mingw81_64/include/QtWidgets/qtabwidget.h \
 		D:/Qt/6.2.0/mingw81_64/include/QtGui/qicon.h \
-		D:/Qt/6.2.0/mingw81_64/include/QtWidgets/QGraphicsScene \
-		D:/Qt/6.2.0/mingw81_64/include/QtWidgets/qgraphicsscene.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtWidgets/QGraphicsView \
+		D:/Qt/6.2.0/mingw81_64/include/QtWidgets/qgraphicsview.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtGui/qpainter.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtGui/qtextoption.h \
 		D:/Qt/6.2.0/mingw81_64/include/QtGui/qpen.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtWidgets/qscrollarea.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtWidgets/qabstractscrollarea.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtWidgets/qframe.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtWidgets/qgraphicsscene.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtGui/QPixmap \
+		D:/Qt/6.2.0/mingw81_64/include/QtWidgets/QGraphicsScene \
+		D:/Qt/6.2.0/mingw81_64/include/QtGui/QPainter \
+		D:/Qt/6.2.0/mingw81_64/include/QtGui/QImage \
 		D:/Qt/6.2.0/mingw81_64/include/QtCore/QTimer \
 		D:/Qt/6.2.0/mingw81_64/include/QtCore/qtimer.h \
 		D:/Qt/6.2.0/mingw81_64/include/QtCore/qbasictimer.h \
@@ -384,13 +395,11 @@ release/moc_mainwindow.cpp: ../8Enigma/mainwindow.h \
 		D:/Qt/6.2.0/mingw81_64/include/QtCore/qwineventnotifier.h \
 		D:/Qt/6.2.0/mingw81_64/include/QtCore/qxmlstream.h \
 		D:/Qt/6.2.0/mingw81_64/include/QtCore/qtcoreversion.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtGui/QMouseEvent \
 		../8Enigma/bola.h \
 		D:/Qt/6.2.0/mingw81_64/include/QtWidgets/QGraphicsItem \
 		D:/Qt/6.2.0/mingw81_64/include/QtWidgets/qgraphicsitem.h \
 		D:/Qt/6.2.0/mingw81_64/include/QtGui/qpainterpath.h \
-		D:/Qt/6.2.0/mingw81_64/include/QtGui/QPainter \
-		D:/Qt/6.2.0/mingw81_64/include/QtGui/qpainter.h \
-		D:/Qt/6.2.0/mingw81_64/include/QtGui/qtextoption.h \
 		../8Enigma/taco.h \
 		D:/Qt/6.2.0/mingw81_64/include/QtWidgets/QGraphicsLineItem \
 		D:/Qt/6.2.0/mingw81_64/include/QtWidgets/QGraphicsEllipseItem \
@@ -752,9 +761,19 @@ release/main.o: ../8Enigma/main.cpp ../8Enigma/mainwindow.h \
 		D:/Qt/6.2.0/mingw81_64/include/QtCore/qloggingcategory.h \
 		D:/Qt/6.2.0/mingw81_64/include/QtWidgets/qtabwidget.h \
 		D:/Qt/6.2.0/mingw81_64/include/QtGui/qicon.h \
-		D:/Qt/6.2.0/mingw81_64/include/QtWidgets/QGraphicsScene \
-		D:/Qt/6.2.0/mingw81_64/include/QtWidgets/qgraphicsscene.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtWidgets/QGraphicsView \
+		D:/Qt/6.2.0/mingw81_64/include/QtWidgets/qgraphicsview.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtGui/qpainter.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtGui/qtextoption.h \
 		D:/Qt/6.2.0/mingw81_64/include/QtGui/qpen.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtWidgets/qscrollarea.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtWidgets/qabstractscrollarea.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtWidgets/qframe.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtWidgets/qgraphicsscene.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtGui/QPixmap \
+		D:/Qt/6.2.0/mingw81_64/include/QtWidgets/QGraphicsScene \
+		D:/Qt/6.2.0/mingw81_64/include/QtGui/QPainter \
+		D:/Qt/6.2.0/mingw81_64/include/QtGui/QImage \
 		D:/Qt/6.2.0/mingw81_64/include/QtCore/QTimer \
 		D:/Qt/6.2.0/mingw81_64/include/QtCore/qtimer.h \
 		D:/Qt/6.2.0/mingw81_64/include/QtCore/qbasictimer.h \
@@ -880,13 +899,11 @@ release/main.o: ../8Enigma/main.cpp ../8Enigma/mainwindow.h \
 		D:/Qt/6.2.0/mingw81_64/include/QtCore/qwineventnotifier.h \
 		D:/Qt/6.2.0/mingw81_64/include/QtCore/qxmlstream.h \
 		D:/Qt/6.2.0/mingw81_64/include/QtCore/qtcoreversion.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtGui/QMouseEvent \
 		../8Enigma/bola.h \
 		D:/Qt/6.2.0/mingw81_64/include/QtWidgets/QGraphicsItem \
 		D:/Qt/6.2.0/mingw81_64/include/QtWidgets/qgraphicsitem.h \
 		D:/Qt/6.2.0/mingw81_64/include/QtGui/qpainterpath.h \
-		D:/Qt/6.2.0/mingw81_64/include/QtGui/QPainter \
-		D:/Qt/6.2.0/mingw81_64/include/QtGui/qpainter.h \
-		D:/Qt/6.2.0/mingw81_64/include/QtGui/qtextoption.h \
 		../8Enigma/taco.h \
 		D:/Qt/6.2.0/mingw81_64/include/QtWidgets/QGraphicsLineItem \
 		D:/Qt/6.2.0/mingw81_64/include/QtWidgets/QGraphicsEllipseItem \
@@ -1111,9 +1128,19 @@ release/mainwindow.o: ../8Enigma/mainwindow.cpp D:/Qt/6.2.0/mingw81_64/include/Q
 		D:/Qt/6.2.0/mingw81_64/include/QtCore/qloggingcategory.h \
 		D:/Qt/6.2.0/mingw81_64/include/QtWidgets/qtabwidget.h \
 		D:/Qt/6.2.0/mingw81_64/include/QtGui/qicon.h \
-		D:/Qt/6.2.0/mingw81_64/include/QtWidgets/QGraphicsScene \
-		D:/Qt/6.2.0/mingw81_64/include/QtWidgets/qgraphicsscene.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtWidgets/QGraphicsView \
+		D:/Qt/6.2.0/mingw81_64/include/QtWidgets/qgraphicsview.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtGui/qpainter.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtGui/qtextoption.h \
 		D:/Qt/6.2.0/mingw81_64/include/QtGui/qpen.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtWidgets/qscrollarea.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtWidgets/qabstractscrollarea.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtWidgets/qframe.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtWidgets/qgraphicsscene.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtGui/QPixmap \
+		D:/Qt/6.2.0/mingw81_64/include/QtWidgets/QGraphicsScene \
+		D:/Qt/6.2.0/mingw81_64/include/QtGui/QPainter \
+		D:/Qt/6.2.0/mingw81_64/include/QtGui/QImage \
 		D:/Qt/6.2.0/mingw81_64/include/QtCore/QTimer \
 		D:/Qt/6.2.0/mingw81_64/include/QtCore/qtimer.h \
 		D:/Qt/6.2.0/mingw81_64/include/QtCore/qbasictimer.h \
@@ -1239,13 +1266,11 @@ release/mainwindow.o: ../8Enigma/mainwindow.cpp D:/Qt/6.2.0/mingw81_64/include/Q
 		D:/Qt/6.2.0/mingw81_64/include/QtCore/qwineventnotifier.h \
 		D:/Qt/6.2.0/mingw81_64/include/QtCore/qxmlstream.h \
 		D:/Qt/6.2.0/mingw81_64/include/QtCore/qtcoreversion.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtGui/QMouseEvent \
 		../8Enigma/bola.h \
 		D:/Qt/6.2.0/mingw81_64/include/QtWidgets/QGraphicsItem \
 		D:/Qt/6.2.0/mingw81_64/include/QtWidgets/qgraphicsitem.h \
 		D:/Qt/6.2.0/mingw81_64/include/QtGui/qpainterpath.h \
-		D:/Qt/6.2.0/mingw81_64/include/QtGui/QPainter \
-		D:/Qt/6.2.0/mingw81_64/include/QtGui/qpainter.h \
-		D:/Qt/6.2.0/mingw81_64/include/QtGui/qtextoption.h \
 		../8Enigma/taco.h \
 		D:/Qt/6.2.0/mingw81_64/include/QtWidgets/QGraphicsLineItem \
 		D:/Qt/6.2.0/mingw81_64/include/QtWidgets/QGraphicsEllipseItem \
@@ -1334,21 +1359,7 @@ release/mainwindow.o: ../8Enigma/mainwindow.cpp D:/Qt/6.2.0/mingw81_64/include/Q
 		D:/Qt/6.2.0/mingw81_64/include/QtGui/qundostack.h \
 		D:/Qt/6.2.0/mingw81_64/include/QtGui/qvalidator.h \
 		D:/Qt/6.2.0/mingw81_64/include/QtGui/qtguiversion.h \
-		ui_mainwindow.h \
-		D:/Qt/6.2.0/mingw81_64/include/QtCore/QVariant \
-		D:/Qt/6.2.0/mingw81_64/include/QtWidgets/QApplication \
-		D:/Qt/6.2.0/mingw81_64/include/QtWidgets/qapplication.h \
-		D:/Qt/6.2.0/mingw81_64/include/QtWidgets/QGraphicsView \
-		D:/Qt/6.2.0/mingw81_64/include/QtWidgets/qgraphicsview.h \
-		D:/Qt/6.2.0/mingw81_64/include/QtWidgets/qscrollarea.h \
-		D:/Qt/6.2.0/mingw81_64/include/QtWidgets/qabstractscrollarea.h \
-		D:/Qt/6.2.0/mingw81_64/include/QtWidgets/qframe.h \
-		D:/Qt/6.2.0/mingw81_64/include/QtWidgets/QLineEdit \
-		D:/Qt/6.2.0/mingw81_64/include/QtWidgets/qlineedit.h \
-		D:/Qt/6.2.0/mingw81_64/include/QtWidgets/QPushButton \
-		D:/Qt/6.2.0/mingw81_64/include/QtWidgets/qpushbutton.h \
-		D:/Qt/6.2.0/mingw81_64/include/QtWidgets/qabstractbutton.h \
-		D:/Qt/6.2.0/mingw81_64/include/QtWidgets/QWidget
+		ui_mainwindow.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\mainwindow.o ..\8Enigma\mainwindow.cpp
 
 release/taco.o: ../8Enigma/taco.cpp ../8Enigma/taco.h \
@@ -1694,6 +1705,7 @@ release/taco.o: ../8Enigma/taco.cpp ../8Enigma/taco.h \
 		D:/Qt/6.2.0/mingw81_64/include/QtGui/qundostack.h \
 		D:/Qt/6.2.0/mingw81_64/include/QtGui/qvalidator.h \
 		D:/Qt/6.2.0/mingw81_64/include/QtGui/qtguiversion.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtCore/QTimer \
 		../8Enigma/bola.h \
 		D:/Qt/6.2.0/mingw81_64/include/QtWidgets/QGraphicsItem \
 		D:/Qt/6.2.0/mingw81_64/include/QtGui/QPainter \
@@ -1703,9 +1715,16 @@ release/taco.o: ../8Enigma/taco.cpp ../8Enigma/taco.h \
 		D:/Qt/6.2.0/mingw81_64/include/QtWidgets/qwidget.h \
 		D:/Qt/6.2.0/mingw81_64/include/QtWidgets/qsizepolicy.h \
 		D:/Qt/6.2.0/mingw81_64/include/QtWidgets/qtabwidget.h \
-		D:/Qt/6.2.0/mingw81_64/include/QtWidgets/QGraphicsScene \
+		D:/Qt/6.2.0/mingw81_64/include/QtWidgets/QGraphicsView \
+		D:/Qt/6.2.0/mingw81_64/include/QtWidgets/qgraphicsview.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtWidgets/qscrollarea.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtWidgets/qabstractscrollarea.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtWidgets/qframe.h \
 		D:/Qt/6.2.0/mingw81_64/include/QtWidgets/qgraphicsscene.h \
-		D:/Qt/6.2.0/mingw81_64/include/QtCore/QTimer
+		D:/Qt/6.2.0/mingw81_64/include/QtGui/QPixmap \
+		D:/Qt/6.2.0/mingw81_64/include/QtWidgets/QGraphicsScene \
+		D:/Qt/6.2.0/mingw81_64/include/QtGui/QImage \
+		D:/Qt/6.2.0/mingw81_64/include/QtGui/QMouseEvent
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\taco.o ..\8Enigma\taco.cpp
 
 release/qrc_imagenes.o: release/qrc_imagenes.cpp 

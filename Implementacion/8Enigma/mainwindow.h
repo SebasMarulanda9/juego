@@ -28,12 +28,18 @@ public:
      MainWindow(QWidget *parent = 0);
     ~MainWindow();
     void tacoInteraction();
+    int imp;
 
 protected:
     bool eventFilter(QObject *watched, QEvent *event);
 
 private slots:
     void mover();
+    void on_verticalSlider_2_sliderMoved(int data);
+
+    //void on_verticalSlider_2_sliderReleased();
+
+    //void on_verticalSlider_sliderMoved(int position);//Slider que define el cambio del angulo en el taco alrededor
 
 private:
     Ui::MainWindow *ui;
@@ -41,6 +47,7 @@ private:
     QTimer *timer;
     QTimer *timer2;
     bola *arreglo_bolas;
+    bool readyTaco;
     Taco *taco;
     bool tiro;
 

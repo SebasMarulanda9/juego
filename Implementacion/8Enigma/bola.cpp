@@ -185,7 +185,7 @@ void bola::mover(int x0, int y0, int w, int h)
             posY = radio;
         }
         else{
-            setPos(30+(radio*3*muerta),-20);
+            setPos(54+(radio*3*muerta),-20);
         }
     }
 }

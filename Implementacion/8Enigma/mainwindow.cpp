@@ -3,35 +3,35 @@
 #include "ui_mainwindow.h"
 #include "bola.h"
 
-#define num_balls 16
+#define num_bolas 16
 
 MainWindow::MainWindow(QWidget *parent):
     QMainWindow(parent),
     ui(new Ui::MainWindow)
 {
     int contador = 0, contador2 = 0, contador3 = 0, contador4 = 0;
+    imp = 75;
     ui->setupUi(this);
     ui->graphicsView->viewport()->installEventFilter(this);
     scene = new QGraphicsScene(this);
     timer = new QTimer;
     timer2 = new QTimer;
-    arreglo_bolas = new bola[num_balls];
-    taco = new Taco(0,scene);
-    tiro = false;
-
+    arreglo_bolas = new bola[num_bolas];
+    taco = new Taco(0,0,0,scene);
+    readyTaco = true;
+    tiro = true;
     ui->graphicsView->setScene(scene);
     ui->graphicsView->setRenderHint(QPainter::Antialiasing,true);
     QPixmap pixmap(":/imagenes/mesa.png");
     QGraphicsPixmapItem* pixmapItem = scene->addPixmap(pixmap);
     pixmapItem->setPos(0, 0); // Establece la posición en la escena
     pixmapItem->setScale(1.15); // Ajusta la escala del pixmap
-
-
+    taco->setAngulo(0*(M_PI/180.0));
 
 
 
     if(bola::getpuntaje()<15){
-        for(int i=0;i<num_balls;i++){
+        for(int i=0;i<num_bolas;i++){
             arreglo_bolas[i].setColor(i);
 
             if (i == 0){
@@ -86,12 +86,12 @@ MainWindow::MainWindow(QWidget *parent):
         }
     }
     else{
-        for(int i=0;i<num_balls;i++){
+        for(int i=0;i<num_bolas;i++){
             arreglo_bolas[i].setColor(i);
 
             if (i == 0){
                arreglo_bolas[i].setPosX(550);
-               arreglo_bolas[i].setPosY(-205);
+               arreglo_bolas[i].setPosY(-250);
                arreglo_bolas[i].setVelX(0);
                arreglo_bolas[i].setVelY(0);
             }
@@ -158,8 +158,8 @@ void MainWindow::mover()
 {
     tacoInteraction();
     //cout << arreglo_bolas[0].getPosX() << endl;
-    for(int bola1 = 0; bola1 < num_balls; bola1++) {
-       for(int bola2 = 0; bola2 < num_balls; bola2++){
+    for(int bola1 = 0; bola1 < num_bolas; bola1++) {
+       for(int bola2 = 0; bola2 < num_bolas; bola2++){
            if(bola1 != bola2){
                float a = arreglo_bolas[bola1].getPosX();
                float b = arreglo_bolas[bola2].getPosX();
@@ -174,7 +174,7 @@ void MainWindow::mover()
         arreglo_bolas[bola1].mover(ladoIzquierdo,ladoInferior,ladoDerecho,ladoSuperior);
     }
 
-    for(int cont = 0;cont < num_balls;cont++){
+    for(int cont = 0;cont < num_bolas;cont++){
         if(arreglo_bolas[cont].muerta == 0){
             if(arreglo_bolas[cont].getPosX() <= ladoIzquierdo+tolerancia && arreglo_bolas[cont].getPosY() >= ladoSuperior-tolerancia){  //hueco superior izquierdo
                 if(cont==0){
@@ -254,11 +254,46 @@ void MainWindow::mover()
 
 void MainWindow::tacoInteraction()
 {
+    //Todo lo de dinamica del taco
+    //taco->drawTaco(scene,300);
     if(tiro){
         tiro = false;
         taco->tiroTaco(scene,arreglo_bolas[0]);
+        //readyTaco = false;
+        //taco->resetTaco( scene);
     }
 }
+
+void MainWindow::on_verticalSlider_2_sliderMoved(int data)
+{
+    //Dar impulso al taco
+    /*if(readyTaco){
+         taco->setImpulso((qreal)data);
+         taco->moveTaco( scene,arreglo_bolas[0]);
+    }*/
+    imp = data;
+
+}
+
+/*void MainWindow::on_verticalSlider_2_sliderReleased()
+{
+    //Disparar
+    if(readyTaco){
+        tiro = true;
+        ui->verticalSlider_2->setValue(0);
+    }
+    //taco->resetTaco(scene,0,0);
+}*/
+
+/*void MainWindow::on_verticalSlider_sliderMoved(int position)
+{
+    //Cambiar angulo al taco
+    if(readyTaco){
+        qreal angulo = 4*((qreal)position)*(M_PI/180.0);
+         taco->setAngulo(angulo);
+         taco->moveTaco(scene,arreglo_bolas[0]);
+    }
+}*/
 
 bool MainWindow::eventFilter(QObject *watched, QEvent *event)
 
@@ -266,18 +301,32 @@ bool MainWindow::eventFilter(QObject *watched, QEvent *event)
     if(watched == ui->graphicsView->viewport() && event->type() == QEvent::MouseButtonRelease)
     {
         QMouseEvent *mouseEvent = static_cast<QMouseEvent*>(event);
-        float pos_mouseX = mouseEvent->x();
-        float pos_mouseY = mouseEvent->y();
+        QPointF scenePos = ui->graphicsView->mapToScene(mouseEvent->pos());
+        float pos_mouseX = scenePos.x();
+        float pos_mouseY = scenePos.y();
         std::cout << "Mouse: X= " << pos_mouseX << ", Y= " << pos_mouseY << std::endl;
         float catetoOpuesto = 0, catetoAdyacente = 0;
-        float pos_blancaX = arreglo_bolas[0].getPosX()+18;
-        float pos_blancaY = arreglo_bolas[0].getPosY()+467;
+        float pos_blancaX = arreglo_bolas[0].getPosX();
+        float pos_blancaY = -arreglo_bolas[0].getPosY();
         std::cout << "Bola: X= " << pos_blancaX << " Y:= " << pos_blancaY << std::endl;
+
         catetoOpuesto = fabs(pos_mouseY-pos_blancaY);
         catetoAdyacente = fabs(pos_mouseX-pos_blancaX);
 
         double ang = atan2(static_cast<double>(catetoOpuesto), static_cast<double>(catetoAdyacente));
         double anguloGrados = ang*(180/M_PI);
+        std::cout << "Angulo: " << anguloGrados << " grados\n \n" << std::endl;
+
+
+        if(pos_mouseX>=pos_blancaX && pos_mouseY<=pos_blancaY){
+            anguloGrados = 180-anguloGrados;
+        }
+        else if(pos_mouseX>=pos_blancaX && pos_mouseY>=pos_blancaY){
+            anguloGrados = anguloGrados-180;
+        }
+        else if(pos_mouseX<=pos_blancaX && pos_mouseY>=pos_blancaY){
+            anguloGrados = 360-anguloGrados;
+        }
 
         std::cout << "Angulo: " << anguloGrados << " grados\n \n" << std::endl;
 
@@ -286,9 +335,10 @@ bool MainWindow::eventFilter(QObject *watched, QEvent *event)
         //angulo
         float angulo = -((float)anguloGrados)*(M_PI/180.0);
         taco->setAngulo(angulo);
+        taco->moveTaco(scene,arreglo_bolas[0]);
 
         //fuerza
-        taco->setImpulso((float)150);
+        taco->setImpulso((float)imp);
 
         //disparar
         tiro = true;

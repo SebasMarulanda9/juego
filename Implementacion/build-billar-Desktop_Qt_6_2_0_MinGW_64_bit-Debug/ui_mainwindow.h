@@ -13,6 +13,7 @@
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QGraphicsView>
 #include <QtWidgets/QMainWindow>
+#include <QtWidgets/QSlider>
 #include <QtWidgets/QWidget>
 
 QT_BEGIN_NAMESPACE
@@ -22,6 +23,7 @@ class Ui_MainWindow
 public:
     QWidget *centralwidget;
     QGraphicsView *graphicsView;
+    QSlider *verticalSlider_2;
 
     void setupUi(QMainWindow *MainWindow)
     {
@@ -34,6 +36,18 @@ public:
         graphicsView = new QGraphicsView(centralwidget);
         graphicsView->setObjectName(QString::fromUtf8("graphicsView"));
         graphicsView->setGeometry(QRect(260, 60, 721, 511));
+        graphicsView->setAutoFillBackground(false);
+        graphicsView->setVerticalScrollBarPolicy(Qt::ScrollBarAsNeeded);
+        graphicsView->setHorizontalScrollBarPolicy(Qt::ScrollBarAsNeeded);
+        graphicsView->setSizeAdjustPolicy(QAbstractScrollArea::AdjustIgnored);
+        graphicsView->setInteractive(true);
+        verticalSlider_2 = new QSlider(centralwidget);
+        verticalSlider_2->setObjectName(QString::fromUtf8("verticalSlider_2"));
+        verticalSlider_2->setGeometry(QRect(1030, 30, 51, 601));
+        verticalSlider_2->setMinimum(20);
+        verticalSlider_2->setMaximum(130);
+        verticalSlider_2->setValue(75);
+        verticalSlider_2->setOrientation(Qt::Vertical);
         MainWindow->setCentralWidget(centralwidget);
 
         retranslateUi(MainWindow);

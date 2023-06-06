@@ -1,5 +1,6 @@
 <RCC>
     <qresource prefix="/imagenes">
         <file>mesa.png</file>
+        <file>taco.png</file>
     </qresource>
 </RCC>
