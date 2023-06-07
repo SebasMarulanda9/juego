@@ -10,6 +10,7 @@
 #include <QTimer>
 #include <QtCore>
 #include <QMouseEvent>
+#include <QDateTime>
 #include <iostream>
 #include "bola.h"
 #include "taco.h"
@@ -28,18 +29,11 @@ public:
      MainWindow(QWidget *parent = 0);
     ~MainWindow();
     void tacoInteraction();
-    int imp;
-
-protected:
     bool eventFilter(QObject *watched, QEvent *event);
+    void reinicio();
 
 private slots:
     void mover();
-    void on_verticalSlider_2_sliderMoved(int data);
-
-    //void on_verticalSlider_2_sliderReleased();
-
-    //void on_verticalSlider_sliderMoved(int position);//Slider que define el cambio del angulo en el taco alrededor
 
 private:
     Ui::MainWindow *ui;
@@ -47,9 +41,12 @@ private:
     QTimer *timer;
     QTimer *timer2;
     bola *arreglo_bolas;
-    bool readyTaco;
     Taco *taco;
     bool tiro;
+    int tiempoAcumulado;
+    float velBlanca_x;
+    float velBlanca_y;
+    int contador, contador2, contador3, contador4;
 
 };
 

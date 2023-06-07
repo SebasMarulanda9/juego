@@ -1,4 +1,5 @@
 #include <qdebug.h>
+#include "ganaste.h"
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include "bola.h"
@@ -9,8 +10,7 @@ MainWindow::MainWindow(QWidget *parent):
     QMainWindow(parent),
     ui(new Ui::MainWindow)
 {
-    int contador = 0, contador2 = 0, contador3 = 0, contador4 = 0;
-    imp = 75;
+    contador = 0, contador2 = 0, contador3 = 0, contador4 = 0;
     ui->setupUi(this);
     ui->graphicsView->viewport()->installEventFilter(this);
     scene = new QGraphicsScene(this);
@@ -18,127 +18,70 @@ MainWindow::MainWindow(QWidget *parent):
     timer2 = new QTimer;
     arreglo_bolas = new bola[num_bolas];
     taco = new Taco(0,0,0,scene);
-    readyTaco = true;
     tiro = true;
     ui->graphicsView->setScene(scene);
     ui->graphicsView->setRenderHint(QPainter::Antialiasing,true);
+    scene->setSceneRect(0,0,692,350);
     QPixmap pixmap(":/imagenes/mesa.png");
     QGraphicsPixmapItem* pixmapItem = scene->addPixmap(pixmap);
-    pixmapItem->setPos(0, 0); // Establece la posición en la escena
-    pixmapItem->setScale(1.15); // Ajusta la escala del pixmap
+    pixmapItem->setPos(0, 0);
+    pixmapItem->setScale(1.15);
     taco->setAngulo(0*(M_PI/180.0));
+    QIcon icon(":/imagenes/icono.png"); // Reemplaza ":/path/to/icon.png" con la ruta real de tu icono
+    setWindowIcon(icon);
 
+    for(int i=0;i<num_bolas;i++){
+        arreglo_bolas[i].setColor(i);
 
-
-    if(bola::getpuntaje()<15){
-        for(int i=0;i<num_bolas;i++){
-            arreglo_bolas[i].setColor(i);
-
-            if (i == 0){
-               arreglo_bolas[i].setPosX(550);
-               arreglo_bolas[i].setPosY(-205);
-               arreglo_bolas[i].setVelX(0);
-               arreglo_bolas[i].setVelY(0);
+        if (i == 0){
+           arreglo_bolas[i].setPosX(550);
+           arreglo_bolas[i].setPosY(-205);
+           arreglo_bolas[i].setVelX(0);
+           arreglo_bolas[i].setVelY(0);
+        }
+        else{
+            if(i<=5){
+                arreglo_bolas[i].setPosX(150);
+                arreglo_bolas[i].setPosY(-253+contador);
+                arreglo_bolas[i].setVelX(0);
+                arreglo_bolas[i].setVelY(0);
+                contador += radio*2;
             }
             else{
-                if(i<=5){
-                    arreglo_bolas[i].setPosX(150);
-                    arreglo_bolas[i].setPosY(-253+contador);
+                if(i<=9){
+                    arreglo_bolas[i].setPosX(174);
+                    arreglo_bolas[i].setPosY(-241+contador2);
                     arreglo_bolas[i].setVelX(0);
-                    arreglo_bolas[i].setVelY(0);
-                    contador += radio*2;
+                    contador2 += radio*2;
                 }
                 else{
-                    if(i<=9){
-                        arreglo_bolas[i].setPosX(174);
-                        arreglo_bolas[i].setPosY(-241+contador2);
+                    if(i<=12){
+                        arreglo_bolas[i].setPosX(198);
+                        arreglo_bolas[i].setPosY(-229+contador3);
                         arreglo_bolas[i].setVelX(0);
-                        contador2 += radio*2;
+                        arreglo_bolas[i].setVelY(0);
+                        contador3 += radio*2;
                     }
                     else{
-                        if(i<=12){
-                            arreglo_bolas[i].setPosX(198);
-                            arreglo_bolas[i].setPosY(-229+contador3);
+                        if(i<=14){
+                            arreglo_bolas[i].setPosX(222);
+                            arreglo_bolas[i].setPosY(-217+contador4);
                             arreglo_bolas[i].setVelX(0);
                             arreglo_bolas[i].setVelY(0);
-                            contador3 += radio*2;
+                            contador4 += radio*2;
                         }
                         else{
-                            if(i<=14){
-                                arreglo_bolas[i].setPosX(222);
-                                arreglo_bolas[i].setPosY(-217+contador4);
-                                arreglo_bolas[i].setVelX(0);
-                                arreglo_bolas[i].setVelY(0);
-                                contador4 += radio*2;
-                            }
-                            else{
-                                arreglo_bolas[i].setPosX(246);
-                                arreglo_bolas[i].setPosY(-205);
-                                arreglo_bolas[i].setVelX(0);
-                                arreglo_bolas[i].setVelY(0);
-                            }
-                        }
-                    }
-                }
-            }
-            scene->addItem(&arreglo_bolas[i]);
-            timer->start(5);
-        }
-    }
-    else{
-        for(int i=0;i<num_bolas;i++){
-            arreglo_bolas[i].setColor(i);
-
-            if (i == 0){
-               arreglo_bolas[i].setPosX(550);
-               arreglo_bolas[i].setPosY(-250);
-               arreglo_bolas[i].setVelX(0);
-               arreglo_bolas[i].setVelY(0);
-            }
-            else{
-                if(i<=5){
-                    arreglo_bolas[i].setPosX(150);
-                    arreglo_bolas[i].setPosY(-253+contador);
-                    arreglo_bolas[i].setVelX(0);
-                    arreglo_bolas[i].setVelY(0);
-                    contador += radio*2;
-                }
-                else{
-                    if(i<=9){
-                        arreglo_bolas[i].setPosX(174);
-                        arreglo_bolas[i].setPosY(-241+contador2);
-                        arreglo_bolas[i].setVelX(0);
-                        contador2 += radio*2;
-                    }
-                    else{
-                        if(i<=12){
-                            arreglo_bolas[i].setPosX(198);
-                            arreglo_bolas[i].setPosY(-229+contador3);
+                            arreglo_bolas[i].setPosX(246);
+                            arreglo_bolas[i].setPosY(-205);
                             arreglo_bolas[i].setVelX(0);
                             arreglo_bolas[i].setVelY(0);
-                            contador3 += radio*2;
-                        }
-                        else{
-                            if(i<=14){
-                                arreglo_bolas[i].setPosX(222);
-                                arreglo_bolas[i].setPosY(-217+contador4);
-                                arreglo_bolas[i].setVelX(0);
-                                arreglo_bolas[i].setVelY(0);
-                                contador4 += radio*2;
-                            }
-                            else{
-                                arreglo_bolas[i].setPosX(246);
-                                arreglo_bolas[i].setPosY(-205);
-                                arreglo_bolas[i].setVelX(0);
-                                arreglo_bolas[i].setVelY(0);
-                            }
                         }
                     }
                 }
             }
-            scene->addItem(&arreglo_bolas[i]);
-            timer->start(5);
         }
+        scene->addItem(&arreglo_bolas[i]);
+        timer->start(5);
     }
     connect(timer,SIGNAL(timeout()),this,SLOT(mover()));
 }
@@ -153,29 +96,98 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
+void MainWindow::reinicio()
+{
+    contador = 0, contador2 = 0, contador3 = 0, contador4 = 0;
+    if(bola::getpuntaje()==15){
+        ganaste *ganast= new ganaste(this);
+        ganast->show();
+
+        bola::resetM();
+        bola::resetPuntaje();
+
+        for(int cont = 0;cont < num_bolas;cont++){
+            arreglo_bolas[cont].encestada = 0;
+        }
+
+        for(int i=0;i<num_bolas;i++){
+            if (i == 0){
+                arreglo_bolas[i].setPosX(550);
+                arreglo_bolas[i].setPosY(-205);
+                arreglo_bolas[i].setVelX(0);
+                arreglo_bolas[i].setVelY(0);
+            }
+            else{
+                if(i<=5){
+                    arreglo_bolas[i].bola_en_juego = 1;
+                    arreglo_bolas[i].setPosX(150);
+                    arreglo_bolas[i].setPosY(-253+contador);
+                    arreglo_bolas[i].setVelX(0);
+                    arreglo_bolas[i].setVelY(0);
+                    contador += radio*2;
+                }
+                else{
+                    if(i<=9){
+                        arreglo_bolas[i].bola_en_juego = 1;
+                        arreglo_bolas[i].setPosX(174);
+                        arreglo_bolas[i].setPosY(-241+contador2);
+                        arreglo_bolas[i].setVelX(0);
+                        contador2 += radio*2;
+                    }
+                    else{
+                        if(i<=12){
+                            arreglo_bolas[i].bola_en_juego = 1;
+                            arreglo_bolas[i].setPosX(198);
+                            arreglo_bolas[i].setPosY(-229+contador3);
+                            arreglo_bolas[i].setVelX(0);
+                            arreglo_bolas[i].setVelY(0);
+                            contador3 += radio*2;
+                        }
+                        else{
+                            if(i<=14){
+                                arreglo_bolas[i].bola_en_juego = 1;
+                                arreglo_bolas[i].setPosX(222);
+                                arreglo_bolas[i].setPosY(-217+contador4);
+                                arreglo_bolas[i].setVelX(0);
+                                arreglo_bolas[i].setVelY(0);
+                                contador4 += radio*2;
+                            }
+                            else{
+                                arreglo_bolas[i].bola_en_juego = 1;
+                                arreglo_bolas[i].setPosX(246);
+                                arreglo_bolas[i].setPosY(-205);
+                                arreglo_bolas[i].setVelX(0);
+                                arreglo_bolas[i].setVelY(0);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+}
+
 
 void MainWindow::mover()
 {
     tacoInteraction();
-    //cout << arreglo_bolas[0].getPosX() << endl;
     for(int bola1 = 0; bola1 < num_bolas; bola1++) {
-       for(int bola2 = 0; bola2 < num_bolas; bola2++){
+        for(int bola2 = 0; bola2 < num_bolas; bola2++){
            if(bola1 != bola2){
                float a = arreglo_bolas[bola1].getPosX();
                float b = arreglo_bolas[bola2].getPosX();
                float c = arreglo_bolas[bola1].getPosY();
                float d = arreglo_bolas[bola2].getPosY();
                if(sqrt(pow(a-b,2)+pow(c-d,2)) <= (2*(radio-0.5)))
-                    arreglo_bolas[bola1].choque(&arreglo_bolas[bola2]);
-
-           }
-       }
-
+                arreglo_bolas[bola1].choque(&arreglo_bolas[bola2]);
+            }
+        }
         arreglo_bolas[bola1].mover(ladoIzquierdo,ladoInferior,ladoDerecho,ladoSuperior);
     }
 
     for(int cont = 0;cont < num_bolas;cont++){
-        if(arreglo_bolas[cont].muerta == 0){
+        if(arreglo_bolas[cont].encestada == 0){
             if(arreglo_bolas[cont].getPosX() <= ladoIzquierdo+tolerancia && arreglo_bolas[cont].getPosY() >= ladoSuperior-tolerancia){  //hueco superior izquierdo
                 if(cont==0){
                     arreglo_bolas[cont].setPosX(550);
@@ -250,73 +262,58 @@ void MainWindow::mover()
             }
         }
     }
+    //verifica si llego al puntaje maximo
+    reinicio();
 }
 
 void MainWindow::tacoInteraction()
 {
-    //Todo lo de dinamica del taco
-    //taco->drawTaco(scene,300);
+    //Disparo
     if(tiro){
         tiro = false;
         taco->tiroTaco(scene,arreglo_bolas[0]);
-        //readyTaco = false;
-        //taco->resetTaco( scene);
+    }
+
+    velBlanca_x = arreglo_bolas[0].getVelX();
+    velBlanca_y = arreglo_bolas[0].getVelY();
+
+    //Quitar taco
+    if(fabs(velBlanca_x) < 15 && fabs(velBlanca_y) < 15){
+        taco->moverTaco(scene,arreglo_bolas[0]);
+    }
+    else {
+        //taco->quitaTaco( scene);
     }
 }
-
-void MainWindow::on_verticalSlider_2_sliderMoved(int data)
-{
-    //Dar impulso al taco
-    /*if(readyTaco){
-         taco->setImpulso((qreal)data);
-         taco->moveTaco( scene,arreglo_bolas[0]);
-    }*/
-    imp = data;
-
-}
-
-/*void MainWindow::on_verticalSlider_2_sliderReleased()
-{
-    //Disparar
-    if(readyTaco){
-        tiro = true;
-        ui->verticalSlider_2->setValue(0);
-    }
-    //taco->resetTaco(scene,0,0);
-}*/
-
-/*void MainWindow::on_verticalSlider_sliderMoved(int position)
-{
-    //Cambiar angulo al taco
-    if(readyTaco){
-        qreal angulo = 4*((qreal)position)*(M_PI/180.0);
-         taco->setAngulo(angulo);
-         taco->moveTaco(scene,arreglo_bolas[0]);
-    }
-}*/
 
 bool MainWindow::eventFilter(QObject *watched, QEvent *event)
-
 {
+    if (watched == ui->graphicsView->viewport() && event->type() == QEvent::MouseButtonPress)
+    {
+        tiempoAcumulado = QDateTime::currentMSecsSinceEpoch();
+    }
     if(watched == ui->graphicsView->viewport() && event->type() == QEvent::MouseButtonRelease)
     {
+        int tiempoActual = QDateTime::currentMSecsSinceEpoch();
+        int duracion = tiempoActual - tiempoAcumulado;
+
+        if(duracion>5000)
+         duracion = 5000;
+
         QMouseEvent *mouseEvent = static_cast<QMouseEvent*>(event);
         QPointF scenePos = ui->graphicsView->mapToScene(mouseEvent->pos());
+
         float pos_mouseX = scenePos.x();
         float pos_mouseY = scenePos.y();
-        std::cout << "Mouse: X= " << pos_mouseX << ", Y= " << pos_mouseY << std::endl;
         float catetoOpuesto = 0, catetoAdyacente = 0;
         float pos_blancaX = arreglo_bolas[0].getPosX();
         float pos_blancaY = -arreglo_bolas[0].getPosY();
-        std::cout << "Bola: X= " << pos_blancaX << " Y:= " << pos_blancaY << std::endl;
 
         catetoOpuesto = fabs(pos_mouseY-pos_blancaY);
         catetoAdyacente = fabs(pos_mouseX-pos_blancaX);
 
         double ang = atan2(static_cast<double>(catetoOpuesto), static_cast<double>(catetoAdyacente));
         double anguloGrados = ang*(180/M_PI);
-        std::cout << "Angulo: " << anguloGrados << " grados\n \n" << std::endl;
-
 
         if(pos_mouseX>=pos_blancaX && pos_mouseY<=pos_blancaY){
             anguloGrados = 180-anguloGrados;
@@ -328,21 +325,19 @@ bool MainWindow::eventFilter(QObject *watched, QEvent *event)
             anguloGrados = 360-anguloGrados;
         }
 
-        std::cout << "Angulo: " << anguloGrados << " grados\n \n" << std::endl;
-
         timer2->start(1000);
 
         //angulo
         float angulo = -((float)anguloGrados)*(M_PI/180.0);
         taco->setAngulo(angulo);
-        taco->moveTaco(scene,arreglo_bolas[0]);
 
         //fuerza
-        taco->setImpulso((float)imp);
+        taco->setImpulso((float)duracion/10);
 
         //disparar
         tiro = true;
     }
     return false;
 }
+
 

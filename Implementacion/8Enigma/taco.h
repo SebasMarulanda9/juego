@@ -9,38 +9,30 @@
 #include <QTimer>
 #include "bola.h"
 
-#define  LARGO_TACO 300.0
-#define  RADIO_PUNTA 4.0
-#define  VEL_SHOT 3.0
-#define  POS_X_TACO_DEFAULT 100
-#define  POS_Y_TACO_DEFAULT -650
-
 class Taco {
 public:
     Taco();
-    Taco(qreal p_x, qreal p_y, qreal angl, QGraphicsScene *scene);
+    Taco(float p_x, float p_y, float angl, QGraphicsScene *scene);
     virtual ~Taco();
-    void impulseTaco(QGraphicsScene *scene,bola &ballrefer, qreal impulseMagn);
-    void moveTaco(QGraphicsScene *scene,bola &ballrefer);
-    void resetTaco(QGraphicsScene *scene);
-    void drawTaco(QGraphicsScene *scene,qreal longitud);
+    void moverTaco(QGraphicsScene *scene,bola &ballrefer);
+    void quitaTaco(QGraphicsScene *scene);
+    void poneTaco(QGraphicsScene *scene,float longitud);
     void tiroTaco(QGraphicsScene *scene,bola &ballrefer);
 
-    void setImpulso(qreal impul);
-    void setAngulo(qreal angl);
-    void setPos_x(qreal p_x);
-    void setPos_y(qreal p_y);
+    void setImpulso(float impul);
+    void setAngulo(float angl);
+    void setPos_x(float p_x);
+    void setPos_y(float p_y);
 
-    qreal getImpulso();
-    qreal getangulo();
-    qreal getPos_x();
-    qreal getPos_y();
+    float getImpulso();
+    float getangulo();
+    float getPos_x();
+    float getPos_y();
 private:
-    QGraphicsEllipseItem *punt;
     QGraphicsLineItem *taco;
-    qreal impulso;
-    qreal angulo;
-    qreal pos_x;
-    qreal pos_y;
+    float impulso;
+    float angulo;
+    float pos_x;
+    float pos_y;
 };
 #endif // TACO_H

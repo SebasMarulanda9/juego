@@ -13,7 +13,7 @@
 #define tiempo 0.001
 #define elasti 0.9 //Coeficiente de elasticidad
 #define desaceleracion 0.992
-#define tolerancia 20
+#define tolerancia 150
 
 #define ladoIzquierdo 46
 #define ladoInferior -356
@@ -28,7 +28,7 @@ public:
     static int puntaje;
     static int m;
     int bola_en_juego;
-    int muerta;
+    int encestada;
     void setPosX(float);
     void setPosY(float);
     void setVelX(float);
@@ -38,7 +38,8 @@ public:
     void setColor(int);
     static void setM(int);
     static void setpuntaje(int);
-
+    static void resetPuntaje();
+    static void resetM();
 
     float getPosX();
     float getPosY();
@@ -51,7 +52,7 @@ public:
     static int getpuntaje();
 
     QRectF boundingRect() const;
-    void paint(QPainter *painter ,const QStyleOptionGraphicsItem *option, QWidget *widget);
+    void paint(QPainter *painter , const QStyleOptionGraphicsItem *option, QWidget *widget);
     void mover(int x0, int y0, int w, int h);
     float choque(bola *b2);
 

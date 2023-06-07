@@ -1,6 +1,5 @@
 #include "bola.h"
 
-
 bola::bola()
 {
     posX = 0;
@@ -11,7 +10,7 @@ bola::bola()
     accelY = 0;
     color = 0;
     bola_en_juego = 1;
-    muerta = 0;
+    encestada = 0;
 }
 
 int bola::m=0;
@@ -20,9 +19,11 @@ int bola::puntaje=0;
 void bola::setPosX(float _posX){
     posX = _posX;
 }
+
 void bola::setPosY(float _posY){
     posY = _posY;
 }
+
 void bola:: setVelX(float _velX){
     velX = _velX;
 }
@@ -33,6 +34,7 @@ void bola::setVelY(float _velY){
 void bola::setAccelX(float _accelX){
     accelX = _accelX;
 }
+
 void bola::setAccelY(float _accelY){
     accelY = _accelY;
 }
@@ -50,6 +52,15 @@ void bola::setM(int _m)
 void bola::setpuntaje(int _puntaje)
 {
     puntaje+=_puntaje;
+}
+
+void bola::resetPuntaje()
+{
+    puntaje = 0;
+}
+
+void bola::resetM(){
+    m = 0;
 }
 
 float bola:: getPosX() { return posX; }
@@ -79,7 +90,6 @@ int bola::getpuntaje()
 QRectF bola::boundingRect() const
 {
     return QRectF(-radio,-radio,2*radio,2*radio);
-
 }
 
 void bola::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)
@@ -139,7 +149,6 @@ void bola::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWid
     painter->drawEllipse(boundingRect());
 }
 
-
 void bola::mover(int x0, int y0, int w, int h)
 {
     if(bola_en_juego == 1){
@@ -173,19 +182,18 @@ void bola::mover(int x0, int y0, int w, int h)
                 posY = h-radio;
             }
         }
-
         setPos(posX,-posY);
     }
 
     else{
-        if(muerta == 0){   //la variable "muerta" se utiliza para que solo entre una vez
-            muerta ++;
+        if(encestada == 0){   //la variable "encestada" se utiliza para que solo entre una vez
+            encestada ++;
             bola::setM(1);   //la funcion set ya no se suma solo de a uno, se le suma el argumento
-            muerta *= bola::getM();
+            encestada *= bola::getM();
             posY = radio;
         }
         else{
-            setPos(54+(radio*3*muerta),-20);
+            setPos(54+(radio*3*encestada),-20);
         }
     }
 }

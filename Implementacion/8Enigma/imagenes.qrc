@@ -2,5 +2,6 @@
     <qresource prefix="/imagenes">
         <file>mesa.png</file>
         <file>taco.png</file>
+        <file>icono.png</file>
     </qresource>
 </RCC>
