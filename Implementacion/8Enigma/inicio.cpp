@@ -7,6 +7,7 @@ inicio::inicio(QWidget *parent) :
     ui(new Ui::inicio)
 {
     ui->setupUi(this);
+    setWindowFlags(windowFlags() | Qt::MSWindowsFixedSizeDialogHint);
     QIcon icon(":/imagenes/icono.png");
     setWindowIcon(icon);
 }

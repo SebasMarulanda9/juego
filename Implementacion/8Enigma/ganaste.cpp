@@ -6,6 +6,7 @@ ganaste::ganaste(QWidget *parent) :
     ui(new Ui::ganaste)
 {
     ui->setupUi(this);
+    setWindowFlags(windowFlags() | Qt::MSWindowsFixedSizeDialogHint);
 }
 
 ganaste::~ganaste()

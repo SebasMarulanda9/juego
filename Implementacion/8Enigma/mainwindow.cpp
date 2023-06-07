@@ -10,6 +10,7 @@ MainWindow::MainWindow(QWidget *parent):
     QMainWindow(parent),
     ui(new Ui::MainWindow)
 {
+    setWindowFlags(windowFlags() | Qt::MSWindowsFixedSizeDialogHint);
     contador = 0, contador2 = 0, contador3 = 0, contador4 = 0;
     ui->setupUi(this);
     ui->graphicsView->viewport()->installEventFilter(this);
