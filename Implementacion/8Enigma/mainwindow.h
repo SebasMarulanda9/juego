@@ -34,6 +34,7 @@ public:
 
 private slots:
     void mover();
+    void updatelabel();
 
 private:
     Ui::MainWindow *ui;
@@ -47,6 +48,7 @@ private:
     float velBlanca_x;
     float velBlanca_y;
     int contador, contador2, contador3, contador4;
+    int contadorDisplay=0;
 
 };
 

@@ -21,12 +21,13 @@ MainWindow::MainWindow(QWidget *parent):
     tiro = true;
     ui->graphicsView->setScene(scene);
     ui->graphicsView->setRenderHint(QPainter::Antialiasing,true);
-    scene->setSceneRect(0,0,692,350);
+    scene->setSceneRect(0,0,692,384);
     QPixmap pixmap(":/imagenes/mesa.png");
     QGraphicsPixmapItem* pixmapItem = scene->addPixmap(pixmap);
     pixmapItem->setPos(0, 0);
     pixmapItem->setScale(1.15);
     taco->setAngulo(0*(M_PI/180.0));
+    connect(timer2,SIGNAL(timeout()),this,SLOT(updatelabel()));
     QIcon icon(":/imagenes/icono.png"); // Reemplaza ":/path/to/icon.png" con la ruta real de tu icono
     setWindowIcon(icon);
 
@@ -86,6 +87,17 @@ MainWindow::MainWindow(QWidget *parent):
     connect(timer,SIGNAL(timeout()),this,SLOT(mover()));
 }
 
+//Funcion para iniciar el contador
+void MainWindow::updatelabel(){
+contadorDisplay++;
+ui->display->display(QString::number(contadorDisplay));
+// Obtener el puntaje de la clase bola
+int puntaje = bola::getpuntaje();
+
+// Actualizar el texto del QLabel con el puntaje
+ui->display2->display(puntaje);
+}
+
 MainWindow::~MainWindow()
 {
     delete scene;
@@ -102,7 +114,8 @@ void MainWindow::reinicio()
     if(bola::getpuntaje()==15){
         ganaste *ganast= new ganaste(this);
         ganast->show();
-
+        timer2->stop();
+        contadorDisplay = 0;
         bola::resetM();
         bola::resetPuntaje();
 
@@ -282,7 +295,7 @@ void MainWindow::tacoInteraction()
         taco->moverTaco(scene,arreglo_bolas[0]);
     }
     else {
-        //taco->quitaTaco( scene);
+        taco->quitaTaco( scene);
     }
 }
 

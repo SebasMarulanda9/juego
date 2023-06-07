@@ -23,44 +23,40 @@ class Ui_ganaste
 {
 public:
     QWidget *centralwidget;
-    QLabel *label;
-    QWidget *layoutWidget;
-    QHBoxLayout *horizontalLayout;
-    QPushButton *pushButton;
     QPushButton *pushButton_2;
+    QPushButton *pushButton;
+    QLabel *label_2;
+    QWidget *widget;
+    QHBoxLayout *horizontalLayout_2;
 
     void setupUi(QMainWindow *ganaste)
     {
         if (ganaste->objectName().isEmpty())
             ganaste->setObjectName(QString::fromUtf8("ganaste"));
-        ganaste->resize(280, 125);
+        ganaste->resize(639, 359);
         centralwidget = new QWidget(ganaste);
         centralwidget->setObjectName(QString::fromUtf8("centralwidget"));
-        centralwidget->setStyleSheet(QString::fromUtf8("background-color: rgb(255, 255, 255);"));
-        label = new QLabel(centralwidget);
-        label->setObjectName(QString::fromUtf8("label"));
-        label->setGeometry(QRect(10, 0, 271, 61));
-        QFont font;
-        font.setPointSize(48);
-        label->setFont(font);
-        label->setScaledContents(false);
-        layoutWidget = new QWidget(centralwidget);
-        layoutWidget->setObjectName(QString::fromUtf8("layoutWidget"));
-        layoutWidget->setGeometry(QRect(50, 80, 162, 26));
-        horizontalLayout = new QHBoxLayout(layoutWidget);
-        horizontalLayout->setObjectName(QString::fromUtf8("horizontalLayout"));
-        horizontalLayout->setContentsMargins(0, 0, 0, 0);
-        pushButton = new QPushButton(layoutWidget);
-        pushButton->setObjectName(QString::fromUtf8("pushButton"));
-
-        horizontalLayout->addWidget(pushButton);
-
-        pushButton_2 = new QPushButton(layoutWidget);
+        centralwidget->setStyleSheet(QString::fromUtf8(""));
+        pushButton_2 = new QPushButton(centralwidget);
         pushButton_2->setObjectName(QString::fromUtf8("pushButton_2"));
-
-        horizontalLayout->addWidget(pushButton_2);
-
+        pushButton_2->setGeometry(QRect(330, 250, 141, 24));
+        pushButton = new QPushButton(centralwidget);
+        pushButton->setObjectName(QString::fromUtf8("pushButton"));
+        pushButton->setGeometry(QRect(170, 250, 141, 24));
+        label_2 = new QLabel(centralwidget);
+        label_2->setObjectName(QString::fromUtf8("label_2"));
+        label_2->setGeometry(QRect(0, 0, 805, 360));
+        label_2->setPixmap(QPixmap(QString::fromUtf8(":/imagenes/ganaste.png")));
+        widget = new QWidget(centralwidget);
+        widget->setObjectName(QString::fromUtf8("widget"));
+        widget->setGeometry(QRect(240, 230, 807, 362));
+        horizontalLayout_2 = new QHBoxLayout(widget);
+        horizontalLayout_2->setObjectName(QString::fromUtf8("horizontalLayout_2"));
+        horizontalLayout_2->setContentsMargins(0, 0, 0, 0);
         ganaste->setCentralWidget(centralwidget);
+        label_2->raise();
+        pushButton->raise();
+        pushButton_2->raise();
 
         retranslateUi(ganaste);
 
@@ -69,10 +65,10 @@ public:
 
     void retranslateUi(QMainWindow *ganaste)
     {
-        ganaste->setWindowTitle(QCoreApplication::translate("ganaste", "MainWindow", nullptr));
-        label->setText(QCoreApplication::translate("ganaste", "!Ganaste!", nullptr));
-        pushButton->setText(QCoreApplication::translate("ganaste", "Volver a jugar", nullptr));
+        ganaste->setWindowTitle(QCoreApplication::translate("ganaste", "\302\241Ganaste!", nullptr));
         pushButton_2->setText(QCoreApplication::translate("ganaste", "Salir", nullptr));
+        pushButton->setText(QCoreApplication::translate("ganaste", "Volver a jugar", nullptr));
+        label_2->setText(QString());
     } // retranslateUi
 
 };

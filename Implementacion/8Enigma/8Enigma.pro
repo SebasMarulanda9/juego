@@ -11,6 +11,7 @@ CONFIG += c++17
 SOURCES += \
     bola.cpp \
     ganaste.cpp \
+    inicio.cpp \
     main.cpp \
     mainwindow.cpp \
     taco.cpp
@@ -18,11 +19,13 @@ SOURCES += \
 HEADERS += \
     bola.h \
     ganaste.h \
+    inicio.h \
     mainwindow.h \
     taco.h
 
 FORMS += \
     ganaste.ui \
+    inicio.ui \
     mainwindow.ui
 
 # Default rules for deployment.

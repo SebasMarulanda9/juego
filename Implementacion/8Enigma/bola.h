@@ -13,7 +13,7 @@
 #define tiempo 0.001
 #define elasti 0.9 //Coeficiente de elasticidad
 #define desaceleracion 0.992
-#define tolerancia 150
+#define tolerancia 30
 
 #define ladoIzquierdo 46
 #define ladoInferior -356

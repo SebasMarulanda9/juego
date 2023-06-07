@@ -3,5 +3,8 @@
         <file>mesa.png</file>
         <file>taco.png</file>
         <file>icono.png</file>
+        <file>ganaste.png</file>
+        <file>fondo.jpg</file>
+        <file>inicio.jpg</file>
     </qresource>
 </RCC>

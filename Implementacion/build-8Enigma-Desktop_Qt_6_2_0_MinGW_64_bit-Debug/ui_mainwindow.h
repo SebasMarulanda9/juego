@@ -12,6 +12,7 @@
 #include <QtCore/QVariant>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QGraphicsView>
+#include <QtWidgets/QLCDNumber>
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QWidget>
 
@@ -22,19 +23,28 @@ class Ui_MainWindow
 public:
     QWidget *centralwidget;
     QGraphicsView *graphicsView;
+    QLCDNumber *display;
+    QLCDNumber *display2;
 
     void setupUi(QMainWindow *MainWindow)
     {
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName(QString::fromUtf8("MainWindow"));
-        MainWindow->resize(1230, 753);
+        MainWindow->resize(1228, 753);
         centralwidget = new QWidget(MainWindow);
         centralwidget->setObjectName(QString::fromUtf8("centralwidget"));
-        centralwidget->setStyleSheet(QString::fromUtf8("background-color: rgb(255, 255, 255);"));
+        centralwidget->setStyleSheet(QString::fromUtf8("background-image: url(:/imagenes/fondo.jpg);"));
         graphicsView = new QGraphicsView(centralwidget);
         graphicsView->setObjectName(QString::fromUtf8("graphicsView"));
-        graphicsView->setGeometry(QRect(260, 100, 721, 471));
+        graphicsView->setGeometry(QRect(260, 180, 721, 491));
+        graphicsView->setStyleSheet(QString::fromUtf8("background: transparent"));
         graphicsView->setFrameShape(QFrame::NoFrame);
+        display = new QLCDNumber(centralwidget);
+        display->setObjectName(QString::fromUtf8("display"));
+        display->setGeometry(QRect(850, 650, 91, 41));
+        display2 = new QLCDNumber(centralwidget);
+        display2->setObjectName(QString::fromUtf8("display2"));
+        display2->setGeometry(QRect(480, 650, 91, 41));
         MainWindow->setCentralWidget(centralwidget);
 
         retranslateUi(MainWindow);
