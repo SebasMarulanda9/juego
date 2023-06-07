@@ -1,10 +1,26 @@
 <RCC>
     <qresource prefix="/imagenes">
         <file>mesa.png</file>
-        <file>taco.png</file>
         <file>icono.png</file>
-        <file>ganaste.png</file>
         <file>fondo.jpg</file>
         <file>inicio.jpg</file>
+        <file>0.png</file>
+        <file>1.png</file>
+        <file>2.png</file>
+        <file>3.png</file>
+        <file>4.png</file>
+        <file>5.png</file>
+        <file>6.png</file>
+        <file>7.png</file>
+        <file>8.png</file>
+        <file>9.png</file>
+        <file>10.png</file>
+        <file>11.png</file>
+        <file>12.png</file>
+        <file>13.png</file>
+        <file>14.png</file>
+        <file>15.png</file>
+        <file>ganaste.png</file>
+        <file>taco.png</file>
     </qresource>
 </RCC>

@@ -124,11 +124,27 @@ compiler_rcc_clean:
 	-$(DEL_FILE) debug\qrc_imagenes.cpp
 debug/qrc_imagenes.cpp: ../8Enigma/imagenes.qrc \
 		D:/Qt/6.2.0/mingw81_64/bin/rcc.exe \
-		../8Enigma/mesa.png \
-		../8Enigma/inicio.jpg \
-		../8Enigma/icono.png \
-		../8Enigma/fondo.jpg \
 		../8Enigma/taco.png \
+		../8Enigma/8.png \
+		../8Enigma/10.png \
+		../8Enigma/2.png \
+		../8Enigma/icono.png \
+		../8Enigma/11.png \
+		../8Enigma/3.png \
+		../8Enigma/4.png \
+		../8Enigma/7.png \
+		../8Enigma/15.png \
+		../8Enigma/5.png \
+		../8Enigma/mesa.png \
+		../8Enigma/6.png \
+		../8Enigma/14.png \
+		../8Enigma/1.png \
+		../8Enigma/0.png \
+		../8Enigma/12.png \
+		../8Enigma/9.png \
+		../8Enigma/13.png \
+		../8Enigma/fondo.jpg \
+		../8Enigma/inicio.jpg \
 		../8Enigma/ganaste.png
 	D:\Qt\6.2.0\mingw81_64\bin\rcc.exe -name imagenes ..\8Enigma\imagenes.qrc -o debug\qrc_imagenes.cpp
 
@@ -689,6 +705,17 @@ debug/moc_mainwindow.cpp: ../8Enigma/mainwindow.h \
 		D:/Qt/6.2.0/mingw81_64/include/QtWidgets/QGraphicsItem \
 		D:/Qt/6.2.0/mingw81_64/include/QtWidgets/qgraphicsitem.h \
 		D:/Qt/6.2.0/mingw81_64/include/QtGui/qpainterpath.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtWidgets/QGraphicsPixmapItem \
+		D:/Qt/6.2.0/mingw81_64/include/QtWidgets/QStyleOptionGraphicsItem \
+		D:/Qt/6.2.0/mingw81_64/include/QtWidgets/qstyleoption.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtWidgets/qabstractspinbox.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtGui/qvalidator.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtWidgets/qslider.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtWidgets/qabstractslider.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtWidgets/qstyle.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtWidgets/qtabbar.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtWidgets/qrubberband.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtWidgets/QWidget \
 		../8Enigma/taco.h \
 		D:/Qt/6.2.0/mingw81_64/include/QtWidgets/QGraphicsLineItem \
 		D:/Qt/6.2.0/mingw81_64/include/QtWidgets/QGraphicsEllipseItem \
@@ -775,7 +802,6 @@ debug/moc_mainwindow.cpp: ../8Enigma/mainwindow.h \
 		D:/Qt/6.2.0/mingw81_64/include/QtGui/qtexttable.h \
 		D:/Qt/6.2.0/mingw81_64/include/QtGui/qundogroup.h \
 		D:/Qt/6.2.0/mingw81_64/include/QtGui/qundostack.h \
-		D:/Qt/6.2.0/mingw81_64/include/QtGui/qvalidator.h \
 		D:/Qt/6.2.0/mingw81_64/include/QtGui/qtguiversion.h \
 		debug/moc_predefs.h \
 		D:/Qt/6.2.0/mingw81_64/bin/moc.exe
@@ -923,7 +949,48 @@ debug/bola.o: ../8Enigma/bola.cpp ../8Enigma/bola.h \
 		D:/Qt/6.2.0/mingw81_64/include/QtGui/qfontinfo.h \
 		D:/Qt/6.2.0/mingw81_64/include/QtGui/qfont.h \
 		D:/Qt/6.2.0/mingw81_64/include/QtGui/qfontmetrics.h \
-		D:/Qt/6.2.0/mingw81_64/include/QtCore/QObject
+		D:/Qt/6.2.0/mingw81_64/include/QtCore/QObject \
+		D:/Qt/6.2.0/mingw81_64/include/QtGui/QPixmap \
+		D:/Qt/6.2.0/mingw81_64/include/QtWidgets/QGraphicsPixmapItem \
+		D:/Qt/6.2.0/mingw81_64/include/QtWidgets/QStyleOptionGraphicsItem \
+		D:/Qt/6.2.0/mingw81_64/include/QtWidgets/qstyleoption.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtCore/qlocale.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtWidgets/qabstractspinbox.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtWidgets/qwidget.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtGui/qpalette.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtWidgets/qsizepolicy.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtGui/qcursor.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtGui/qbitmap.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtGui/qkeysequence.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtGui/qevent.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtCore/qiodevice.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtCore/qpointer.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtCore/qurl.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtGui/qeventpoint.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtGui/qvector2d.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtGui/qvectornd.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtGui/qpointingdevice.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtGui/qinputdevice.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtGui/qscreen.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtCore/QList \
+		D:/Qt/6.2.0/mingw81_64/include/QtCore/QRect \
+		D:/Qt/6.2.0/mingw81_64/include/QtCore/QSize \
+		D:/Qt/6.2.0/mingw81_64/include/QtCore/QSizeF \
+		D:/Qt/6.2.0/mingw81_64/include/QtGui/QTransform \
+		D:/Qt/6.2.0/mingw81_64/include/QtCore/qnativeinterface.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtCore/qloggingcategory.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtGui/qvalidator.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtCore/qregularexpression.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtGui/qicon.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtWidgets/qslider.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtWidgets/qabstractslider.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtWidgets/qstyle.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtWidgets/qtabbar.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtWidgets/qtabwidget.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtWidgets/qrubberband.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtWidgets/qframe.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtCore/qabstractitemmodel.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtWidgets/QWidget
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\bola.o ..\8Enigma\bola.cpp
 
 debug/ganaste.o: ../8Enigma/ganaste.cpp ../8Enigma/ganaste.h \
@@ -1229,7 +1296,258 @@ debug/inicio.o: ../8Enigma/inicio.cpp ../8Enigma/inicio.h \
 		D:/Qt/6.2.0/mingw81_64/include/QtCore/qloggingcategory.h \
 		D:/Qt/6.2.0/mingw81_64/include/QtWidgets/qtabwidget.h \
 		D:/Qt/6.2.0/mingw81_64/include/QtGui/qicon.h \
-		ui_inicio.h
+		../8Enigma/mainwindow.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtWidgets/QGraphicsView \
+		D:/Qt/6.2.0/mingw81_64/include/QtWidgets/qgraphicsview.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtGui/qpainter.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtGui/qtextoption.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtGui/qpen.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtWidgets/qscrollarea.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtWidgets/qabstractscrollarea.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtWidgets/qframe.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtWidgets/qgraphicsscene.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtGui/QPixmap \
+		D:/Qt/6.2.0/mingw81_64/include/QtWidgets/QGraphicsScene \
+		D:/Qt/6.2.0/mingw81_64/include/QtGui/QPainter \
+		D:/Qt/6.2.0/mingw81_64/include/QtGui/QImage \
+		D:/Qt/6.2.0/mingw81_64/include/QtCore/QTimer \
+		D:/Qt/6.2.0/mingw81_64/include/QtCore/qtimer.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtCore/qbasictimer.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtCore/QtCore \
+		D:/Qt/6.2.0/mingw81_64/include/QtCore/QtCoreDepends \
+		D:/Qt/6.2.0/mingw81_64/include/QtCore/qabstractanimation.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtCore/qabstracteventdispatcher.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtCore/qeventloop.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtCore/qabstractitemmodel.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtCore/qabstractnativeeventfilter.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtCore/qabstractproxymodel.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtCore/qanimationgroup.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtCore/qapplicationpermission.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtCore/qassociativeiterable.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtCore/qbitarray.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtCore/qbuffer.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtCore/qbytearraymatcher.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtCore/qcache.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtCore/qcalendar.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtCore/qlocale.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtCore/qcborarray.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtCore/qcborvalue.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtCore/qdatetime.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtCore/qcborcommon.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtCore/qregularexpression.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtCore/quuid.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtCore/qcbormap.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtCore/qcborstream.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtCore/qcborstreamreader.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtCore/qfloat16.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtCore/qcborstreamwriter.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtCore/qcollator.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtCore/qcommandlineoption.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtCore/qcommandlineparser.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtCore/qcoreapplication.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtCore/qfuture.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtCore/qfutureinterface.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtCore/qmutex.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtCore/qresultstore.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtCore/qfuture_impl.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtCore/qthreadpool.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtCore/qthread.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtCore/qdeadlinetimer.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtCore/qelapsedtimer.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtCore/qrunnable.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtCore/qexception.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtCore/qcoreapplication_platform.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtCore/qconcatenatetablesproxymodel.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtCore/qcryptographichash.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtCore/qdir.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtCore/qfile.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtCore/qfiledevice.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtCore/qfileinfo.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtCore/qdiriterator.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtCore/qeasingcurve.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtCore/qendian.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtCore/qfactoryinterface.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtCore/qfileselector.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtCore/QStringList \
+		D:/Qt/6.2.0/mingw81_64/include/QtCore/qfilesystemwatcher.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtCore/qfuturesynchronizer.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtCore/qfuturewatcher.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtCore/qidentityproxymodel.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtCore/qitemselectionmodel.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtCore/qjnienvironment.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtCore/QScopedPointer \
+		D:/Qt/6.2.0/mingw81_64/include/QtCore/qjniobject.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtCore/qjsonarray.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtCore/qjsonvalue.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtCore/qjsondocument.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtCore/qjsonobject.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtCore/qlibrary.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtCore/qlibraryinfo.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtCore/qversionnumber.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtCore/qlockfile.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtCore/qmessageauthenticationcode.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtCore/qmetaobject.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtCore/qmimedata.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtCore/qmimedatabase.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtCore/qmimetype.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtCore/qobjectcleanuphandler.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtCore/qoperatingsystemversion.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtCore/qparallelanimationgroup.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtCore/qpauseanimation.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtCore/qplugin.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtCore/qpluginloader.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtCore/qprocess.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtCore/qpromise.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtCore/qpropertyanimation.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtCore/qvariantanimation.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtCore/qqueue.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtCore/qrandom.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtCore/qreadwritelock.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtCore/qresource.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtCore/qsavefile.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtCore/qscopedvaluerollback.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtCore/qsemaphore.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtCore/qsequentialanimationgroup.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtCore/qsequentialiterable.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtCore/qsettings.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtCore/qsharedmemory.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtCore/qsignalmapper.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtCore/qsimd.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtCore/qsocketnotifier.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtCore/qsortfilterproxymodel.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtCore/qstack.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtCore/qstandardpaths.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtCore/qstorageinfo.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtCore/qstringlistmodel.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtCore/qsystemsemaphore.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtCore/qtemporarydir.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtCore/qtemporaryfile.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtCore/qtextboundaryfinder.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtCore/qthreadstorage.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtCore/qtimeline.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtCore/qtimezone.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtCore/qtranslator.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtCore/qtransposeproxymodel.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtCore/qurlquery.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtCore/qvector.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtCore/qwaitcondition.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtCore/QDeadlineTimer \
+		D:/Qt/6.2.0/mingw81_64/include/QtCore/qwineventnotifier.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtCore/qxmlstream.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtCore/qtcoreversion.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtGui/QMouseEvent \
+		D:/Qt/6.2.0/mingw81_64/include/QtCore/QDateTime \
+		../8Enigma/bola.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtWidgets/QGraphicsItem \
+		D:/Qt/6.2.0/mingw81_64/include/QtWidgets/qgraphicsitem.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtGui/qpainterpath.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtWidgets/QGraphicsPixmapItem \
+		D:/Qt/6.2.0/mingw81_64/include/QtWidgets/QStyleOptionGraphicsItem \
+		D:/Qt/6.2.0/mingw81_64/include/QtWidgets/qstyleoption.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtWidgets/qabstractspinbox.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtGui/qvalidator.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtWidgets/qslider.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtWidgets/qabstractslider.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtWidgets/qstyle.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtWidgets/qtabbar.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtWidgets/qrubberband.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtWidgets/QWidget \
+		../8Enigma/taco.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtWidgets/QGraphicsLineItem \
+		D:/Qt/6.2.0/mingw81_64/include/QtWidgets/QGraphicsEllipseItem \
+		D:/Qt/6.2.0/mingw81_64/include/QtGui/QtGui \
+		D:/Qt/6.2.0/mingw81_64/include/QtGui/QtGuiDepends \
+		D:/Qt/6.2.0/mingw81_64/include/QtGui/qabstractfileiconprovider.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtGui/qabstracttextdocumentlayout.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtGui/qtextlayout.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtGui/qglyphrun.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtGui/qrawfont.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtGui/qfontdatabase.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtGui/qtextcursor.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtGui/qtextformat.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtGui/qtextdocument.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtGui/qaccessible.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtGui/qaccessiblebridge.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtGui/qaccessibleobject.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtGui/qaccessibleplugin.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtGui/qaction.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtGui/qactiongroup.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtGui/qbackingstore.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtGui/qwindow.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtCore/QEvent \
+		D:/Qt/6.2.0/mingw81_64/include/QtCore/QMargins \
+		D:/Qt/6.2.0/mingw81_64/include/QtGui/qsurface.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtGui/qsurfaceformat.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtGui/qclipboard.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtGui/qcolorspace.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtGui/qcolortransform.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtGui/qdesktopservices.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtGui/qdrag.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtGui/qfilesystemmodel.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtGui/qgenericmatrix.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtGui/qgenericplugin.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtGui/qgenericpluginfactory.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtGui/qguiapplication.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtGui/qinputmethod.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtGui/qguiapplication_platform.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtGui/qiconengine.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtGui/qiconengineplugin.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtGui/qimageiohandler.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtGui/qimagereader.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtGui/qimagewriter.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtGui/qmatrix4x4.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtGui/qvector3d.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtGui/qvector4d.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtGui/qquaternion.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtGui/qmovie.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtGui/qoffscreensurface.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtGui/qoffscreensurface_platform.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtGui/qopengl.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtCore/qt_windows.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtGui/qopengles2ext.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtGui/qopenglext.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtGui/qopenglcontext.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtGui/QSurfaceFormat \
+		D:/Qt/6.2.0/mingw81_64/include/QtGui/qopenglcontext_platform.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtGui/qopenglextrafunctions.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtGui/qopenglfunctions.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtGui/qpagedpaintdevice.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtGui/qpagelayout.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtGui/qpagesize.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtGui/qpageranges.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtGui/qpaintdevicewindow.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtGui/QWindow \
+		D:/Qt/6.2.0/mingw81_64/include/QtGui/QPaintDevice \
+		D:/Qt/6.2.0/mingw81_64/include/QtGui/qpaintengine.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtGui/qpdfwriter.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtGui/qpicture.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtGui/qpixmapcache.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtGui/qrasterwindow.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtGui/QPaintDeviceWindow \
+		D:/Qt/6.2.0/mingw81_64/include/QtGui/qrgbafloat.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtGui/qsessionmanager.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtGui/qshortcut.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtGui/qstandarditemmodel.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtGui/qstatictext.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtGui/qstylehints.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtGui/qsyntaxhighlighter.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtGui/qtextobject.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtGui/qtextdocumentfragment.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtGui/qtextdocumentwriter.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtGui/qtextlist.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtGui/qtexttable.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtGui/qundogroup.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtGui/qundostack.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtGui/qtguiversion.h \
+		ui_inicio.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtCore/QVariant \
+		D:/Qt/6.2.0/mingw81_64/include/QtWidgets/QApplication \
+		D:/Qt/6.2.0/mingw81_64/include/QtWidgets/qapplication.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtWidgets/QLabel \
+		D:/Qt/6.2.0/mingw81_64/include/QtWidgets/qlabel.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtWidgets/QPushButton \
+		D:/Qt/6.2.0/mingw81_64/include/QtWidgets/qpushbutton.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtWidgets/qabstractbutton.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\inicio.o ..\8Enigma\inicio.cpp
 
 debug/main.o: ../8Enigma/main.cpp ../8Enigma/mainwindow.h \
@@ -1508,6 +1826,17 @@ debug/main.o: ../8Enigma/main.cpp ../8Enigma/mainwindow.h \
 		D:/Qt/6.2.0/mingw81_64/include/QtWidgets/QGraphicsItem \
 		D:/Qt/6.2.0/mingw81_64/include/QtWidgets/qgraphicsitem.h \
 		D:/Qt/6.2.0/mingw81_64/include/QtGui/qpainterpath.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtWidgets/QGraphicsPixmapItem \
+		D:/Qt/6.2.0/mingw81_64/include/QtWidgets/QStyleOptionGraphicsItem \
+		D:/Qt/6.2.0/mingw81_64/include/QtWidgets/qstyleoption.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtWidgets/qabstractspinbox.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtGui/qvalidator.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtWidgets/qslider.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtWidgets/qabstractslider.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtWidgets/qstyle.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtWidgets/qtabbar.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtWidgets/qrubberband.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtWidgets/QWidget \
 		../8Enigma/taco.h \
 		D:/Qt/6.2.0/mingw81_64/include/QtWidgets/QGraphicsLineItem \
 		D:/Qt/6.2.0/mingw81_64/include/QtWidgets/QGraphicsEllipseItem \
@@ -1594,8 +1923,8 @@ debug/main.o: ../8Enigma/main.cpp ../8Enigma/mainwindow.h \
 		D:/Qt/6.2.0/mingw81_64/include/QtGui/qtexttable.h \
 		D:/Qt/6.2.0/mingw81_64/include/QtGui/qundogroup.h \
 		D:/Qt/6.2.0/mingw81_64/include/QtGui/qundostack.h \
-		D:/Qt/6.2.0/mingw81_64/include/QtGui/qvalidator.h \
 		D:/Qt/6.2.0/mingw81_64/include/QtGui/qtguiversion.h \
+		../8Enigma/inicio.h \
 		D:/Qt/6.2.0/mingw81_64/include/QtWidgets/QApplication \
 		D:/Qt/6.2.0/mingw81_64/include/QtWidgets/qapplication.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\main.o ..\8Enigma\main.cpp
@@ -1877,6 +2206,17 @@ debug/mainwindow.o: ../8Enigma/mainwindow.cpp D:/Qt/6.2.0/mingw81_64/include/QtC
 		D:/Qt/6.2.0/mingw81_64/include/QtWidgets/QGraphicsItem \
 		D:/Qt/6.2.0/mingw81_64/include/QtWidgets/qgraphicsitem.h \
 		D:/Qt/6.2.0/mingw81_64/include/QtGui/qpainterpath.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtWidgets/QGraphicsPixmapItem \
+		D:/Qt/6.2.0/mingw81_64/include/QtWidgets/QStyleOptionGraphicsItem \
+		D:/Qt/6.2.0/mingw81_64/include/QtWidgets/qstyleoption.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtWidgets/qabstractspinbox.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtGui/qvalidator.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtWidgets/qslider.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtWidgets/qabstractslider.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtWidgets/qstyle.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtWidgets/qtabbar.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtWidgets/qrubberband.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtWidgets/QWidget \
 		../8Enigma/taco.h \
 		D:/Qt/6.2.0/mingw81_64/include/QtWidgets/QGraphicsLineItem \
 		D:/Qt/6.2.0/mingw81_64/include/QtWidgets/QGraphicsEllipseItem \
@@ -1963,15 +2303,13 @@ debug/mainwindow.o: ../8Enigma/mainwindow.cpp D:/Qt/6.2.0/mingw81_64/include/QtC
 		D:/Qt/6.2.0/mingw81_64/include/QtGui/qtexttable.h \
 		D:/Qt/6.2.0/mingw81_64/include/QtGui/qundogroup.h \
 		D:/Qt/6.2.0/mingw81_64/include/QtGui/qundostack.h \
-		D:/Qt/6.2.0/mingw81_64/include/QtGui/qvalidator.h \
 		D:/Qt/6.2.0/mingw81_64/include/QtGui/qtguiversion.h \
 		ui_mainwindow.h \
 		D:/Qt/6.2.0/mingw81_64/include/QtCore/QVariant \
 		D:/Qt/6.2.0/mingw81_64/include/QtWidgets/QApplication \
 		D:/Qt/6.2.0/mingw81_64/include/QtWidgets/qapplication.h \
 		D:/Qt/6.2.0/mingw81_64/include/QtWidgets/QLCDNumber \
-		D:/Qt/6.2.0/mingw81_64/include/QtWidgets/qlcdnumber.h \
-		D:/Qt/6.2.0/mingw81_64/include/QtWidgets/QWidget
+		D:/Qt/6.2.0/mingw81_64/include/QtWidgets/qlcdnumber.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\mainwindow.o ..\8Enigma\mainwindow.cpp
 
 debug/taco.o: ../8Enigma/taco.cpp ../8Enigma/taco.h \
@@ -2077,7 +2415,9 @@ debug/taco.o: ../8Enigma/taco.cpp ../8Enigma/taco.h \
 		D:/Qt/6.2.0/mingw81_64/include/QtGui/qrgba64.h \
 		D:/Qt/6.2.0/mingw81_64/include/QtGui/qimage.h \
 		D:/Qt/6.2.0/mingw81_64/include/QtGui/qpixelformat.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtWidgets/QGraphicsPixmapItem \
 		D:/Qt/6.2.0/mingw81_64/include/QtWidgets/QGraphicsEllipseItem \
+		D:/Qt/6.2.0/mingw81_64/include/QtGui/QPixmap \
 		D:/Qt/6.2.0/mingw81_64/include/QtGui/QtGui \
 		D:/Qt/6.2.0/mingw81_64/include/QtGui/QtGuiDepends \
 		D:/Qt/6.2.0/mingw81_64/include/QtCore/QtCore \
@@ -2321,19 +2661,27 @@ debug/taco.o: ../8Enigma/taco.cpp ../8Enigma/taco.h \
 		../8Enigma/bola.h \
 		D:/Qt/6.2.0/mingw81_64/include/QtWidgets/QGraphicsItem \
 		D:/Qt/6.2.0/mingw81_64/include/QtGui/QPainter \
+		D:/Qt/6.2.0/mingw81_64/include/QtWidgets/QStyleOptionGraphicsItem \
+		D:/Qt/6.2.0/mingw81_64/include/QtWidgets/qstyleoption.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtWidgets/qabstractspinbox.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtWidgets/qwidget.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtWidgets/qsizepolicy.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtWidgets/qslider.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtWidgets/qabstractslider.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtWidgets/qstyle.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtWidgets/qtabbar.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtWidgets/qtabwidget.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtWidgets/qrubberband.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtWidgets/qframe.h \
+		D:/Qt/6.2.0/mingw81_64/include/QtWidgets/QWidget \
 		../8Enigma/mainwindow.h \
 		D:/Qt/6.2.0/mingw81_64/include/QtWidgets/QMainWindow \
 		D:/Qt/6.2.0/mingw81_64/include/QtWidgets/qmainwindow.h \
-		D:/Qt/6.2.0/mingw81_64/include/QtWidgets/qwidget.h \
-		D:/Qt/6.2.0/mingw81_64/include/QtWidgets/qsizepolicy.h \
-		D:/Qt/6.2.0/mingw81_64/include/QtWidgets/qtabwidget.h \
 		D:/Qt/6.2.0/mingw81_64/include/QtWidgets/QGraphicsView \
 		D:/Qt/6.2.0/mingw81_64/include/QtWidgets/qgraphicsview.h \
 		D:/Qt/6.2.0/mingw81_64/include/QtWidgets/qscrollarea.h \
 		D:/Qt/6.2.0/mingw81_64/include/QtWidgets/qabstractscrollarea.h \
-		D:/Qt/6.2.0/mingw81_64/include/QtWidgets/qframe.h \
 		D:/Qt/6.2.0/mingw81_64/include/QtWidgets/qgraphicsscene.h \
-		D:/Qt/6.2.0/mingw81_64/include/QtGui/QPixmap \
 		D:/Qt/6.2.0/mingw81_64/include/QtWidgets/QGraphicsScene \
 		D:/Qt/6.2.0/mingw81_64/include/QtGui/QImage \
 		D:/Qt/6.2.0/mingw81_64/include/QtGui/QMouseEvent \

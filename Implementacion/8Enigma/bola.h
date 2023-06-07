@@ -6,6 +6,10 @@
 #include <QPainter>
 #include <iostream>
 #include <QObject>
+#include <QPixmap>
+#include <QGraphicsPixmapItem>
+#include <QStyleOptionGraphicsItem>
+#include <QWidget>
 
 #define radio 12
 #define masa 100

@@ -28,7 +28,7 @@ MainWindow::MainWindow(QWidget *parent):
     pixmapItem->setScale(1.15);
     taco->setAngulo(0*(M_PI/180.0));
     connect(timer2,SIGNAL(timeout()),this,SLOT(updatelabel()));
-    QIcon icon(":/imagenes/icono.png"); // Reemplaza ":/path/to/icon.png" con la ruta real de tu icono
+    QIcon icon(":/imagenes/icono.png");
     setWindowIcon(icon);
 
     for(int i=0;i<num_bolas;i++){
@@ -46,14 +46,14 @@ MainWindow::MainWindow(QWidget *parent):
                 arreglo_bolas[i].setPosY(-253+contador);
                 arreglo_bolas[i].setVelX(0);
                 arreglo_bolas[i].setVelY(0);
-                contador += radio*2;
+                contador += radio*2+2;
             }
             else{
                 if(i<=9){
                     arreglo_bolas[i].setPosX(174);
                     arreglo_bolas[i].setPosY(-241+contador2);
                     arreglo_bolas[i].setVelX(0);
-                    contador2 += radio*2;
+                    contador2 += radio*2+2;
                 }
                 else{
                     if(i<=12){
@@ -61,7 +61,7 @@ MainWindow::MainWindow(QWidget *parent):
                         arreglo_bolas[i].setPosY(-229+contador3);
                         arreglo_bolas[i].setVelX(0);
                         arreglo_bolas[i].setVelY(0);
-                        contador3 += radio*2;
+                        contador3 += radio*2+2;
                     }
                     else{
                         if(i<=14){
@@ -69,7 +69,7 @@ MainWindow::MainWindow(QWidget *parent):
                             arreglo_bolas[i].setPosY(-217+contador4);
                             arreglo_bolas[i].setVelX(0);
                             arreglo_bolas[i].setVelY(0);
-                            contador4 += radio*2;
+                            contador4 += radio*2+2;
                         }
                         else{
                             arreglo_bolas[i].setPosX(246);
@@ -87,15 +87,12 @@ MainWindow::MainWindow(QWidget *parent):
     connect(timer,SIGNAL(timeout()),this,SLOT(mover()));
 }
 
-//Funcion para iniciar el contador
-void MainWindow::updatelabel(){
-contadorDisplay++;
-ui->display->display(QString::number(contadorDisplay));
-// Obtener el puntaje de la clase bola
-int puntaje = bola::getpuntaje();
 
-// Actualizar el texto del QLabel con el puntaje
-ui->display2->display(puntaje);
+void MainWindow::updatelabel(){
+    contadorDisplay++;
+    ui->display->display(QString::number(contadorDisplay));
+    int puntaje = bola::getpuntaje();
+    ui->display2->display(puntaje);
 }
 
 MainWindow::~MainWindow()
@@ -137,7 +134,7 @@ void MainWindow::reinicio()
                     arreglo_bolas[i].setPosY(-253+contador);
                     arreglo_bolas[i].setVelX(0);
                     arreglo_bolas[i].setVelY(0);
-                    contador += radio*2;
+                    contador += radio*2+2;
                 }
                 else{
                     if(i<=9){
@@ -145,7 +142,7 @@ void MainWindow::reinicio()
                         arreglo_bolas[i].setPosX(174);
                         arreglo_bolas[i].setPosY(-241+contador2);
                         arreglo_bolas[i].setVelX(0);
-                        contador2 += radio*2;
+                        contador2 += radio*2+2;
                     }
                     else{
                         if(i<=12){
@@ -154,7 +151,7 @@ void MainWindow::reinicio()
                             arreglo_bolas[i].setPosY(-229+contador3);
                             arreglo_bolas[i].setVelX(0);
                             arreglo_bolas[i].setVelY(0);
-                            contador3 += radio*2;
+                            contador3 += radio*2+2;
                         }
                         else{
                             if(i<=14){
@@ -163,7 +160,7 @@ void MainWindow::reinicio()
                                 arreglo_bolas[i].setPosY(-217+contador4);
                                 arreglo_bolas[i].setVelX(0);
                                 arreglo_bolas[i].setVelY(0);
-                                contador4 += radio*2;
+                                contador4 += radio*2+2;
                             }
                             else{
                                 arreglo_bolas[i].bola_en_juego = 1;
@@ -180,7 +177,6 @@ void MainWindow::reinicio()
     }
 
 }
-
 
 void MainWindow::mover()
 {
@@ -275,13 +271,13 @@ void MainWindow::mover()
             }
         }
     }
-    //verifica si llego al puntaje maximo
+    //verifica si llego al puntaje maximo y renicia el juego
     reinicio();
 }
 
 void MainWindow::tacoInteraction()
 {
-    //Disparo
+    //disparo
     if(tiro){
         tiro = false;
         taco->tiroTaco(scene,arreglo_bolas[0]);
@@ -290,7 +286,7 @@ void MainWindow::tacoInteraction()
     velBlanca_x = arreglo_bolas[0].getVelX();
     velBlanca_y = arreglo_bolas[0].getVelY();
 
-    //Quitar taco
+    //quitar taco
     if(fabs(velBlanca_x) < 15 && fabs(velBlanca_y) < 15){
         taco->moverTaco(scene,arreglo_bolas[0]);
     }
@@ -310,8 +306,8 @@ bool MainWindow::eventFilter(QObject *watched, QEvent *event)
         int tiempoActual = QDateTime::currentMSecsSinceEpoch();
         int duracion = tiempoActual - tiempoAcumulado;
 
-        if(duracion>5000)
-         duracion = 5000;
+        if(duracion>3000)
+         duracion = 3000;
 
         QMouseEvent *mouseEvent = static_cast<QMouseEvent*>(event);
         QPointF scenePos = ui->graphicsView->mapToScene(mouseEvent->pos());

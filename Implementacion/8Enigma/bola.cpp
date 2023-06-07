@@ -94,59 +94,65 @@ QRectF bola::boundingRect() const
 
 void bola::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)
 {
+    QPixmap image;
     switch(color){
     case 0:
-        painter->setBrush(Qt::white);
+        image = QPixmap(":/imagenes/0.png");
         break;
     case 1:
-        painter->setBrush(Qt::green);
+        image = QPixmap(":/imagenes/1.png");
         break;
     case 2:
-        painter->setBrush(Qt::yellow);
+        image = QPixmap(":/imagenes/2.png");
         break;
     case 3:
-        painter->setBrush(Qt::blue);
+        image = QPixmap(":/imagenes/3.png");
         break;
     case 4:
-        painter->setBrush(Qt::gray);
+        image = QPixmap(":/imagenes/4.png");
         break;
     case 5:
-        painter->setBrush(Qt::red);
+        image = QPixmap(":/imagenes/5.png");
         break;
     case 6:
-        painter->setBrush(Qt::magenta);
+        image = QPixmap(":/imagenes/6.png");
         break;
     case 7:
-        painter->setBrush(Qt::darkCyan);
+        image = QPixmap(":/imagenes/7.png");
         break;
     case 8:
-        painter->setBrush(Qt::darkYellow);
+        image = QPixmap(":/imagenes/8.png");
         break;
     case 9:
-        painter->setBrush(Qt::lightGray);
+        image = QPixmap(":/imagenes/9.png");
         break;
     case 10:
-        painter->setBrush(Qt::darkRed);
+        image = QPixmap(":/imagenes/10.png");
         break;
     case 11:
-        painter->setBrush(Qt::cyan);
+        image = QPixmap(":/imagenes/11.png");
         break;
     case 12:
-        painter->setBrush(Qt::darkMagenta);
+        image = QPixmap(":/imagenes/12.png");
         break;
     case 13:
-        painter->setBrush(Qt::darkGray);
+        image = QPixmap(":/imagenes/13.png");
         break;
     case 14:
-        painter->setBrush(Qt::darkBlue);
+        image = QPixmap(":/imagenes/14.png");
         break;
     case 15:
-        painter->setBrush(Qt::black);
+        image = QPixmap(":/imagenes/15.png");
         break;
     default:
         break;
     }
-    painter->drawEllipse(boundingRect());
+    QRectF rect = boundingRect();
+    QPointF position(rect.x(), rect.y());
+    QSizeF size(rect.width(), rect.height());
+
+    //dibujar la imagen en lugar de la elipse
+    painter->drawPixmap(position, image.scaled(QSize(size.width(), size.height())));
 }
 
 void bola::mover(int x0, int y0, int w, int h)
@@ -188,7 +194,7 @@ void bola::mover(int x0, int y0, int w, int h)
     else{
         if(encestada == 0){   //la variable "encestada" se utiliza para que solo entre una vez
             encestada ++;
-            bola::setM(1);   //la funcion set ya no se suma solo de a uno, se le suma el argumento
+            bola::setM(1);
             encestada *= bola::getM();
             posY = radio;
         }
@@ -213,14 +219,14 @@ float bola::choque(bola *b2)
     tc = tiempo*b2->velX;
     td = tiempo*b2->velY;
 
-    //Calculando el parametro de impacto
+    //calculando el parametro de impacto
 
     float a = -1*velY;
     float b = velX;
     float c = a*posX + b*posY;
     float param = fabs(a*b2->posX+b*b2->posY-c)/sqrt(pow(a,2)+pow(b,2));
 
-    //Si la colision es unidimensional
+    //si la colision es unidimensional
     if(param < 0.1){
         float t1 = velX* elasti;
         float t2 = velY* elasti;
@@ -231,7 +237,7 @@ float bola::choque(bola *b2)
         return 0.0;
     }
 
-    //Si no es unidimensional, se calcula velocidades y ángulos
+    //si no es unidimensional, se calcula velocidades y ángulos
 
     float teta = asin(param/(2*radio));
     float alfa = atan2(2*tan(teta),1-elasti)-teta;
@@ -239,14 +245,14 @@ float bola::choque(bola *b2)
     float vel_final1 = (cos(alfa)*(velY+b2->velY)-sin(alfa)*(velX+b2->velX))/sin(-M_PI/2);
     float vel_final2 = (velX+b2->velX-vel_final1*cos(teta))/cos(alfa);
 
-    //Asignación  de las nuevas velocidades
+    //asignación  de las nuevas velocidades
 
     velX = vel_final1*cos(alfa);
     velY = -vel_final1*sin(alfa);
     b2->velX = vel_final2*cos(teta);
     b2->velY = -vel_final2*sin(teta);
 
-    //Nuevas posiciones
+    //nuevas posiciones
 
     posX -= ta;
     posY -= tb;

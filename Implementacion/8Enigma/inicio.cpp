@@ -18,9 +18,7 @@ inicio::~inicio()
 
 void inicio::on_pushButton_clicked()
 {
-    close();
     MainWindow *juego= new MainWindow(this);
     juego->show();
-
 }
 

@@ -4,7 +4,9 @@
 #include <qglobal.h>
 #include <qmath.h>
 #include <QGraphicsLineItem>
+#include <QGraphicsPixmapItem>
 #include <QGraphicsEllipseItem>
+#include <QPixmap>
 #include <QtGui>
 #include <QTimer>
 #include "bola.h"
@@ -16,7 +18,7 @@ public:
     virtual ~Taco();
     void moverTaco(QGraphicsScene *scene,bola &ballrefer);
     void quitaTaco(QGraphicsScene *scene);
-    void poneTaco(QGraphicsScene *scene,float longitud);
+    void poneTaco(QGraphicsScene *scene);
     void tiroTaco(QGraphicsScene *scene,bola &ballrefer);
 
     void setImpulso(float impul);
@@ -29,7 +31,7 @@ public:
     float getPos_x();
     float getPos_y();
 private:
-    QGraphicsLineItem *taco;
+    QGraphicsPixmapItem *taco;
     float impulso;
     float angulo;
     float pos_x;

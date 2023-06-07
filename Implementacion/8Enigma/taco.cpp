@@ -18,12 +18,11 @@ Taco::Taco(float p_x, float p_y, float angl, QGraphicsScene *scene){
     pos_x = p_x;
     pos_y = p_y;
     impulso = 0;
-    poneTaco(scene,300);
+    poneTaco(scene);
 }
 
 Taco::~Taco(){
-    if(taco != NULL)
-        delete taco;
+    delete taco;
 }
 
 void Taco::moverTaco(QGraphicsScene *scene,bola &ballrefer){
@@ -34,27 +33,23 @@ void Taco::moverTaco(QGraphicsScene *scene,bola &ballrefer){
     pos_x = X_ref + (R_ref+ impulso)*cos( angulo);
     pos_y = Y_ref + (R_ref+ impulso)*sin( angulo);
 
-    poneTaco(scene,300);
+    poneTaco(scene);
 }
 
 void Taco::quitaTaco(QGraphicsScene *scene){
     scene->removeItem( taco);
 }
 
-void Taco::poneTaco(QGraphicsScene *scene,float longitud){
-
-    //taco siempre tangente a la bola blanca
-    float X_taco =  pos_x + longitud*cos(angulo);
-    float Y_taco =  pos_y + longitud*sin(angulo);
-
+void Taco::poneTaco(QGraphicsScene *scene){
     if(taco != NULL)
         delete taco;
 
-    QPen tacoColor(QColor(0,0,0));
-    tacoColor.setWidth(6);
-    taco = new QGraphicsLineItem(pos_x,- pos_y,X_taco,-Y_taco);
-    taco->setPen(tacoColor);
-    scene->addItem( taco);
+    QPixmap tacoImage(":/imagenes/taco.png");
+    taco = new QGraphicsPixmapItem(tacoImage);
+    taco->setPos(pos_x, -pos_y-tacoImage.height()/2);
+    taco->setTransformOriginPoint(0, 0); // Establece el punto de origen
+    taco->setRotation(-qRadiansToDegrees(angulo));
+    scene->addItem(taco);
 }
 
 void Taco::tiroTaco(QGraphicsScene *scene,bola &ballrefer){
